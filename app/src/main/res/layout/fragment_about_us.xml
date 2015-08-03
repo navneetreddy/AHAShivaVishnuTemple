@@ -30,40 +30,47 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="5dp"
             android:id="@+id/aboutUsAHA" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/our_vision" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="5dp"
             android:textStyle="italic"
             android:id="@+id/aboutUsVision" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/our_mission" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="5dp"
             android:id="@+id/aboutUsMission" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/volunteering" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="5dp"
             android:id="@+id/aboutUsVolunteering" />
 
     </LinearLayout>

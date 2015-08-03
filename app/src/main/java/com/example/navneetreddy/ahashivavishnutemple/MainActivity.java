@@ -2,6 +2,7 @@ package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -60,7 +61,7 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setDrawerItemClickListener(){
+    public void setDrawerItemClickListener() {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -195,7 +196,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void setupDrawer(){
+    public void setupDrawer() {
 //        getActionBar().setHomeButtonEnabled(true);
 //        getActionBar().setDisplayHomeAsUpEnabled(false);
 
@@ -221,7 +222,10 @@ public class MainActivity extends Activity {
 
         drawerLayout.setDrawerListener(drawerToggle);
         drawerItems = getResources().getStringArray(R.array.drawerItems);
+
         drawerList = (ListView) findViewById(R.id.left_drawer);
+//        drawerList.setBackgroundColor(Color.TRANSPARENT);
+//        drawerList.setAlpha(1f);
         drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_activated_1, drawerItems));
     }
