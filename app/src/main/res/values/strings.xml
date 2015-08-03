@@ -29,4 +29,9 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about_us">About Us</string>
+    <string name="aha_title">American Hindu Association</string>
+    <string name="our_vision">Our Vision</string>
+    <string name="our_mission">Our Mission</string>
+    <string name="volunteering">Volunteering at AHA</string>
 </resources>

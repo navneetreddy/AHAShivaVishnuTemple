@@ -2,7 +2,6 @@ package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -30,11 +29,9 @@ public class MainActivity extends Activity {
 
         fragmentManager = getFragmentManager();
 
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         setupDrawer();
-
         setDrawerItemClickListener();
 
         // Go to the home page.
@@ -199,8 +196,8 @@ public class MainActivity extends Activity {
     }
 
     public void setupDrawer(){
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(false);
+//        getActionBar().setHomeButtonEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(false);
 
         // TODO - uncomment once the ic_launcher is ready.
 
