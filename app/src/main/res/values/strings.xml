@@ -8,4 +8,25 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="om_image">Om Image</string>
+
+    <string-array name="drawerItems">
+        <item>Home</item>
+        <item>About Us</item>
+        <item>Puja Services</item>
+        <item>Make A Donation</item>
+        <item>Bala Vihar Classes</item>
+        <item>Event Gallery</item>
+        <item>Hindu Festivals</item>
+        <item>Annual Puja Calendar</item>
+        <item>Temple News</item>
+        <item>Corporate Sponsors</item>
+        <item>AHA Financials</item>
+        <item>AHA Newsletter</item>
+        <item>Temple Management</item>
+        <item>Contact Us</item>
+        <item>Gallery</item>
+    </string-array>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
