@@ -19,7 +19,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/about_us"
             android:layout_gravity="center"
-            android:id="@+id/textView" />
+            android:id="@+id/aboutUsTitle" />
 
         <TextView
             android:layout_width="match_parent"

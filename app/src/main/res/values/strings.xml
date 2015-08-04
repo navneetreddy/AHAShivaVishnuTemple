@@ -34,4 +34,12 @@
     <string name="our_vision">Our Vision</string>
     <string name="our_mission">Our Mission</string>
     <string name="volunteering">Volunteering at AHA</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center of Wisconsin]]></string>
+    <string name="aha_address_line_1">2138 South Fish Hatchery Road</string>
+    <string name="aha_address_line_2">Fitchburg, WI 53575</string>
+    <string name="directions">Directions</string>
+    <string name="call">Call</string>
+    <string name="email">Email</string>
+    <string name="visit_website">Visit Website</string>
 </resources>
