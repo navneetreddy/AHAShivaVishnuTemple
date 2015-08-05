@@ -55,7 +55,9 @@ public class ContactUsFragment extends Fragment {
             public void onClick(View v) {
                 directionsButton.setEnabled(false);
 
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q=2138+South+Fish+Hatchery+Road," +
+//                Uri gmmIntentUri = Uri.parse("geo:0,0?q=2138+South+Fish+Hatchery+Road," +
+//                        "+Fitchburg,+WI+53575");
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=2138+South+Fish+Hatchery+Road," +
                         "+Fitchburg,+WI+53575");
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");

@@ -197,28 +197,28 @@ public class MainActivity extends Activity {
     }
 
     public void setupDrawer() {
-//        getActionBar().setHomeButtonEnabled(true);
-//        getActionBar().setDisplayHomeAsUpEnabled(false);
+        getActionBar().setHomeButtonEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(false);
 
         // TODO - uncomment once the ic_launcher is ready.
 
-//        drawerToggle = new ActionBarDrawerToggle(
-//                this,                  /* host Activity */
-//                drawerLayout,         /* DrawerLayout object */
-//                R.drawable.ic_launcher,
-//                R.string.app_name,  /* "open drawer" description */
-//                R.string.app_name  /* "close drawer" description */
-//        ) {
-//            /** Called when a drawer has settled in a completely closed state. */
-//            public void onDrawerClosed(View view) {
-//                super.onDrawerClosed(view);
-//            }
-//
-//            /** Called when a drawer has settled in a completely open state. */
-//            public void onDrawerOpened(View drawerView) {
-//                super.onDrawerOpened(drawerView);
-//            }
-//        };
+        drawerToggle = new ActionBarDrawerToggle(
+                this,                  /* host Activity */
+                drawerLayout,         /* DrawerLayout object */
+                R.drawable.om_symbol_1,
+                R.string.app_name,  /* "open drawer" description */
+                R.string.app_name  /* "close drawer" description */
+        ) {
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
 
         drawerLayout.setDrawerListener(drawerToggle);
         drawerItems = getResources().getStringArray(R.array.drawerItems);
