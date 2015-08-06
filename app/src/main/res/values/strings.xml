@@ -42,4 +42,5 @@
     <string name="call">Call</string>
     <string name="email">Email</string>
     <string name="visit_website">Visit Website</string>
+    <string name="upcoming_events">Upcoming Events</string>
 </resources>

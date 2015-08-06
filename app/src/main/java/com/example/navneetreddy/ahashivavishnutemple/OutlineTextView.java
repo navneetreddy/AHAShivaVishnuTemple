@@ -45,14 +45,18 @@ public class OutlineTextView extends TextView {
             String typefaceName = a.getString(R.styleable.OutlineTextView_typeface);
 
             if(typefaceName != null) {
-                Typeface tf = Typeface.createFromAsset(getContext().getAssets(), String.format("fonts/%s.ttf", typefaceName));
+                Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
+                        String.format("fonts/%s.ttf", typefaceName));
                 setTypeface(tf);
             }
 
             if(a.hasValue(R.styleable.OutlineTextView_strokeColor)) {
-                float strokeMiter = a.getDimensionPixelSize(R.styleable.OutlineTextView_strokeMiter, 10);
-                float strokeWidth = a.getDimensionPixelSize(R.styleable.OutlineTextView_strokeWidth, 1);
-                int strokeColor = a.getColor(R.styleable.OutlineTextView_strokeColor, 0xff000000);
+                float strokeMiter = a.getDimensionPixelSize(
+                        R.styleable.OutlineTextView_strokeMiter, 10);
+                float strokeWidth = a.getDimensionPixelSize(
+                        R.styleable.OutlineTextView_strokeWidth, 1);
+                int strokeColor = a.getColor(
+                        R.styleable.OutlineTextView_strokeColor, 0xff000000);
 
                 Paint.Join strokeJoin = null;
 
