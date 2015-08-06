@@ -12,6 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.Document;
+
 
 public class MainActivity extends Activity {
 
@@ -26,6 +33,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Singleton singleton = Singleton.getInstance();
+
+        // Connect to MongoDB.
+        final String mongoConnectionURI =
+                "mongodb://<dbuser>:<dbpassword>@ds031223.mongolab.com:31223/aha_app_db";
+        MongoClientURI connectionString = new MongoClientURI(mongoConnectionURI);
+        MongoClient mongoClient = new MongoClient(connectionString);
+        MongoDatabase database = mongoClient.getDatabase("aha_app_db");
+
+        singleton.setDatabase(database);
 
         fragmentManager = getFragmentManager();
 

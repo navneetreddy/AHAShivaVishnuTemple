@@ -8,6 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+
+import org.bson.Document;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +29,9 @@ public class PujaServicesFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        MongoDatabase database = Singleton.getDatabase();
+        MongoCollection<Document> collection = database.getCollection("Events");
 
         /* Set up the recycler view */
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.upcomingEventsRV);
