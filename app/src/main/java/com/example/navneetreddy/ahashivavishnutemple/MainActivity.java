@@ -12,42 +12,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-
-import org.bson.Document;
-
 
 public class MainActivity extends Activity {
 
     FragmentManager fragmentManager;
 
     private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle drawerToggle;
     private ListView drawerList;
-    private String[] drawerItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Singleton singleton = Singleton.getInstance();
-
-        // Connect to MongoDB.
-        final String mongoConnectionURI =
-                "mongodb://<dbuser>:<dbpassword>@ds031223.mongolab.com:31223/aha_app_db";
-        MongoClientURI connectionString = new MongoClientURI(mongoConnectionURI);
-        MongoClient mongoClient = new MongoClient(connectionString);
-        MongoDatabase database = mongoClient.getDatabase("aha_app_db");
-
-        singleton.setDatabase(database);
-
         fragmentManager = getFragmentManager();
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        Singleton.getInstance();
+        Singleton.setFragmentManager(fragmentManager);
 
         setupDrawer();
         setDrawerItemClickListener();
@@ -217,7 +198,9 @@ public class MainActivity extends Activity {
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setDisplayHomeAsUpEnabled(false);
 
-        drawerToggle = new ActionBarDrawerToggle(
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,         /* DrawerLayout object */
                 R.drawable.om_symbol_1,
@@ -235,8 +218,8 @@ public class MainActivity extends Activity {
             }
         };
 
+        String[] drawerItems = getResources().getStringArray(R.array.drawerItems);
         drawerLayout.setDrawerListener(drawerToggle);
-        drawerItems = getResources().getStringArray(R.array.drawerItems);
 
         drawerList = (ListView) findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),

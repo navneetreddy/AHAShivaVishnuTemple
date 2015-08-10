@@ -7,8 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.Date;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 
 /**
@@ -31,10 +30,11 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
         }
     }
 
-    HashMap<String, Date> events;
+//    HashMap<String, Date> events;
+    ArrayList<Event> events;
 
     public EventRVAdapter() {//HashMap<String, Date> events) {
-//        this.events = events;
+        this.events = Singleton.getEvents();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
             return events.size();
         }
 
-        return 5;
+        return 0;
     }
 
     @Override
@@ -55,7 +55,17 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
 
     @Override
     public void onBindViewHolder(EventViewHolder evh, int i) {
-        evh.eventTitle.setText("Title for the Event");
-        evh.eventDateTime.setText("8:30 pm 4/2/2015");
+        evh.eventTitle.setText(events.get(i).getName());
+        evh.eventDateTime.setText(events.get(i).getTime() + " " + events.get(i).getDate());
+
+        evh.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Singleton.getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new EventInformationFragment())
+                        .addToBackStack("EventInformationFragment")
+                        .commit();
+            }
+        });
     }
 }

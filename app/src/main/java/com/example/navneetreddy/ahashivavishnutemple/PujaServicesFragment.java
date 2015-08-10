@@ -8,10 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-
-import org.bson.Document;
+import java.util.ArrayList;
 
 
 /**
@@ -30,8 +27,13 @@ public class PujaServicesFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MongoDatabase database = Singleton.getDatabase();
-        MongoCollection<Document> collection = database.getCollection("Events");
+        GetEventsAsyncTask task = new GetEventsAsyncTask();
+
+        try {
+            Singleton.setEvents(task.execute().get());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /* Set up the recycler view */
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.upcomingEventsRV);
@@ -39,7 +41,6 @@ public class PujaServicesFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setLayoutManager(llm);
 
-        // TODO
         EventRVAdapter adapter = new EventRVAdapter();
         rv.setAdapter(adapter);
     }
