@@ -218,7 +218,7 @@ public class MainActivity extends Activity {
             }
         };
 
-        String[] drawerItems = getResources().getStringArray(R.array.drawerItems);
+        String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
         drawerLayout.setDrawerListener(drawerToggle);
 
         drawerList = (ListView) findViewById(R.id.left_drawer);

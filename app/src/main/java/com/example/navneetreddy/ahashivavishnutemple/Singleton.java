@@ -14,6 +14,7 @@ public class Singleton {
 
     private static FragmentManager fragmentManager;
     private static ArrayList<Event> events;
+    private static Event eventToDisplay;
 
 
     public static synchronized Singleton getInstance() {
@@ -40,5 +41,13 @@ public class Singleton {
 
     public static ArrayList<Event> getEvents() {
         return events;
+    }
+
+    public static void setEventToDisplay(Event eventToDisplay) {
+        Singleton.eventToDisplay = eventToDisplay;
+    }
+
+    public static Event getEventToDisplay() {
+        return eventToDisplay;
     }
 }

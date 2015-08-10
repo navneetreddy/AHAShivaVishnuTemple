@@ -54,13 +54,15 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
     }
 
     @Override
-    public void onBindViewHolder(EventViewHolder evh, int i) {
+    public void onBindViewHolder(final EventViewHolder evh, final int i) {
         evh.eventTitle.setText(events.get(i).getName());
         evh.eventDateTime.setText(events.get(i).getTime() + " " + events.get(i).getDate());
 
         evh.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Singleton.setEventToDisplay(events.get(i));
+
                 Singleton.getFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new EventInformationFragment())
                         .addToBackStack("EventInformationFragment")
