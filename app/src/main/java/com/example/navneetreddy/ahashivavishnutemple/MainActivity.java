@@ -225,4 +225,17 @@ public class MainActivity extends Activity {
         drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_activated_1, drawerItems));
     }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.home) {
+            // Check to open/close drawer
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    
 }
