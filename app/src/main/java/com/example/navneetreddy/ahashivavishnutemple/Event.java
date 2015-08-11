@@ -10,10 +10,12 @@ public class Event {
 
     @SerializedName("Event Name")
     private String name;
-    @SerializedName("Date")
+    @SerializedName("Event Date")
     private String date;
-    @SerializedName("Time")
-    private String time;
+    @SerializedName("Start Time")
+    private String startTime;
+    @SerializedName("End Time")
+    private String endTime;
 
     @SerializedName("Contact Name")
     private String contactName;
@@ -44,12 +46,20 @@ public class Event {
         this.date = date;
     }
 
-    public String getTime() {
-        return time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getContactName() {

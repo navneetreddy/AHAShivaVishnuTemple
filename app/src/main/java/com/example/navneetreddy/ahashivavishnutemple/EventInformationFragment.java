@@ -110,7 +110,7 @@ public class EventInformationFragment extends Fragment {
     private void setFields() {
         eventTitleText.setText(event.getName());
         dateText.setText(event.getDate());
-        timeText.setText(event.getTime());
+        timeText.setText(event.getStartTime());
         contactNameText.setText(event.getContactName());
         contactPhoneText.setText(event.getContactPhone());
         contactEmailText.setText(event.getContactEmail());
@@ -226,13 +226,41 @@ public class EventInformationFragment extends Fragment {
 
     private void saveToGoogleCalendar() {
         String[] dateArray = event.getDate().split("/");
-        String[] timeArray = event.getTime().split("(:)|(\\s)");
+        String[] startTimeArray = event.getStartTime().split("(:)|(\\s)");
+        String[] endTimeArray = event.getEndTime().split("(:)|(\\s)");     //TODO
 
+        switch (startTimeArray[2]) {
+            case "am": startDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;
+            case "pm": startDateCalendar.set(Calendar.AM_PM, Calendar.PM); break;
+            default: break;
+        }
 
-//        Date startDate = startDateCalendar.getTime();
-//        Date endDate = endDateCalendar.getTime();
+        switch (endTimeArray[2]) {
+            case "am": endDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;
+            case "pm": endDateCalendar.set(Calendar.AM_PM, Calendar.PM); break;
+            default: break;
+        }
+
+        startDateCalendar.set(Calendar.AM_PM, Calendar.PM);
+        startDateCalendar.set(
+                Integer.parseInt(dateArray[2]),
+                Integer.parseInt(dateArray[1]),
+                Integer.parseInt(dateArray[0]),
+                Integer.parseInt(startTimeArray[0]),
+                Integer.parseInt(startTimeArray[1]));
+
+        endDateCalendar.set(Calendar.AM_PM, Calendar.PM);
+        endDateCalendar.set(
+                Integer.parseInt(dateArray[2]),
+                Integer.parseInt(dateArray[1]),
+                Integer.parseInt(dateArray[0]),
+                Integer.parseInt(endTimeArray[0]),
+                Integer.parseInt(endTimeArray[1]));  //TODO - change time array to end time.
+
+        Date startDate = startDateCalendar.getTime();
+        Date endDate = endDateCalendar.getTime();
 //        String comments = comments_entry.getText().toString();
-//        String title = meeting_entry.getText().toString();
+        String title = event.getName();
 
         /**
          * SAVE TO GOOGLE CALENDAR
@@ -242,9 +270,9 @@ public class EventInformationFragment extends Fragment {
         ContentResolver cr = getActivity().getContentResolver();
         ContentValues values = new ContentValues();
 
-//        values.put(CalendarContract.Events.DTSTART, startDate.getTime());
-//        values.put(CalendarContract.Events.DTEND, endDate.getTime());
-//        values.put(CalendarContract.Events.TITLE, title);
+        values.put(CalendarContract.Events.DTSTART, startDate.getTime());
+        values.put(CalendarContract.Events.DTEND, endDate.getTime());
+        values.put(CalendarContract.Events.TITLE, title);
 //        values.put(CalendarContract.Events.DESCRIPTION, comments);
         values.put(CalendarContract.Events.CALENDAR_ID, calID);
         values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
