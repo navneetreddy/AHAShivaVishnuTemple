@@ -116,9 +116,10 @@
 
             <ImageButton
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                />
+                android:background="@color/transparent"
+                android:id="@+id/eventContactCallButton" />
 
         </LinearLayout>
 
@@ -140,6 +141,13 @@
                 android:layout_weight="5"
                 android:clickable="true"
                 android:id="@+id/eventContactEmail" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:id="@+id/eventContactEmailButton" />
 
         </LinearLayout>
 
