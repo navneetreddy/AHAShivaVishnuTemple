@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,         /* DrawerLayout object */
-                R.drawable.om_symbol_1,
+                R.mipmap.ic_launcher,
                 R.string.app_name,  /* "open drawer" description */
                 R.string.app_name  /* "close drawer" description */
         ) {
