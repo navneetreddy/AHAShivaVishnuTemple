@@ -45,10 +45,12 @@
 
     <string name="upcoming_events">Upcoming Events</string>
 
-    <string name="date">Date</string>
-    <string name="time">Time</string>
-    <string name="contact_name">Contact Name</string>
-    <string name="contact_phone">Contact Phone</string>
-    <string name="contact_email">Contact Email</string>
+    <string name="date">Date:</string>
+    <string name="time">Time:</string>
+    <string name="contact_name">Contact Name:</string>
+    <string name="contact_phone">Contact Phone:</string>
+    <string name="contact_email">Contact Email:</string>
     <string name="add_event_to_google_calendar">Add Event to Google Calendar</string>
+    <string name="view_event_details">View Event Details</string>
+    <string name="title_activity_pdf_viewer">PdfViewerActivity</string>
 </resources>

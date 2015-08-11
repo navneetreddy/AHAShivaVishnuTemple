@@ -2,8 +2,10 @@ package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.os.AsyncTask;
 
+import com.google.gson.Gson;
 import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -31,7 +33,7 @@ public class GetEventsAsyncTask extends AsyncTask<Event, Void, ArrayList<Event>>
             urlConnection.setRequestMethod("GET");
             urlConnection.setRequestProperty("Accept", "application/json");
 
-            if (urlConnection.getResponseCode() != 200) {
+            if (urlConnection.getResponseCode() != HttpURLConnection.HTTP_OK) {
                 throw new RuntimeException("Failed : HTTP error code : "
                         + urlConnection.getResponseCode());
             }
@@ -50,16 +52,7 @@ public class GetEventsAsyncTask extends AsyncTask<Event, Void, ArrayList<Event>>
             BasicDBList serverEvents = (BasicDBList) dbObj.get("artificial_basicdb_list");
 
             for (Object serverEvent : serverEvents) {
-                DBObject userObj = (DBObject) serverEvent;
-
-                Event tempEvent = new Event();
-                tempEvent.set_id(userObj.get("_id").toString());
-                tempEvent.setName(userObj.get("Event Name").toString());
-                tempEvent.setDate(userObj.get("Date").toString());
-                tempEvent.setTime(userObj.get("Time").toString());
-                tempEvent.setContactName(userObj.get("Contact Name").toString());
-                tempEvent.setContactPhone(userObj.get("Contact Phone").toString());
-                tempEvent.setContactEmail(userObj.get("Contact Email").toString());
+                Event tempEvent = new Gson().fromJson(JSON.serialize(serverEvent), Event.class);
                 events.add(tempEvent);
             }
         } catch (Exception e) {

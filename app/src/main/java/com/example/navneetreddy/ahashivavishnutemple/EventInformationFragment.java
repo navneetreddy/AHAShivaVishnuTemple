@@ -1,5 +1,7 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,6 +25,7 @@ public class EventInformationFragment extends Fragment {
     private TextView contactPhoneText;
     private TextView contactEmailText;
 
+    private Button viewEventDetailsButton;
     private Button addToGoogleCalendarButton;
 
     @Override
@@ -51,6 +54,7 @@ public class EventInformationFragment extends Fragment {
         contactPhoneText = (TextView) view.findViewById(R.id.eventContactPhone);
         contactEmailText = (TextView) view.findViewById(R.id.eventContactEmail);
 
+        viewEventDetailsButton = (Button) view.findViewById(R.id.viewEventDetailsButton);
         addToGoogleCalendarButton = (Button) view.findViewById(R.id.addToGoogleCalendarButton);
     }
 
@@ -75,6 +79,17 @@ public class EventInformationFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        viewEventDetailsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), PdfViewerActivity.class));
+
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
+//                startActivity(browserIntent);
             }
         });
 

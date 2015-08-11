@@ -1,30 +1,32 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import com.google.gson.annotations.SerializedName;
+
 
 /**
  * Created by NavneetReddy on 8/9/15.
  */
 public class Event {
 
-    private String _id;
-
+    @SerializedName("Event Name")
     private String name;
+    @SerializedName("Date")
     private String date;
+    @SerializedName("Time")
     private String time;
 
+    @SerializedName("Contact Name")
     private String contactName;
+    @SerializedName("Contact Phone")
     private String contactPhone;
+    @SerializedName("Contact Email")
     private String contactEmail;
 
+    @SerializedName("PDF")
+    private String pdfLink;
+
+
     public Event() {}
-
-    public String get_id() {
-        return _id;
-    }
-
-    public void set_id(String _id) {
-        this._id = _id;
-    }
 
     public String getName() {
         return name;
@@ -72,5 +74,13 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public String getPdfLink() {
+        return pdfLink;
+    }
+
+    public void setPdfLink(String pdfLink) {
+        this.pdfLink = pdfLink;
     }
 }

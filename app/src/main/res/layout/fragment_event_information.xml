@@ -141,6 +141,16 @@
         android:background="@color/blanched_almond"
         android:layout_margin="10dp"
         android:padding="10dp"
+        android:text="@string/view_event_details"
+        android:id="@+id/viewEventDetailsButton" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/blanched_almond"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:text="@string/add_event_to_google_calendar"
         android:id="@+id/addToGoogleCalendarButton" />
 
