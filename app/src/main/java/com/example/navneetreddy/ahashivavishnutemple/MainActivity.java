@@ -230,7 +230,7 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.home) {
+        if (id == android.R.id.home) {
             // Check to open/close drawer
             return true;
         }
