@@ -163,14 +163,22 @@ public class EventInformationFragment extends Fragment {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Intent.ACTION_DIAL,
+                        Uri.parse("tel:" + event.getContactPhone()));
+                startActivity(intent);
             }
         });
 
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
+                intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+                startActivity(Intent.createChooser(intent, "Send Email"));
             }
         });
 
@@ -179,16 +187,16 @@ public class EventInformationFragment extends Fragment {
             public void onClick(View v) {
 //                startActivity(new Intent(getActivity(), PdfViewerActivity.class));
 
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-//                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
-//                startActivity(browserIntent);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
+                startActivity(browserIntent);
             }
         });
 
         addToGoogleCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveToGoogleCalendar();
+//                saveToGoogleCalendar();
             }
         });
     }

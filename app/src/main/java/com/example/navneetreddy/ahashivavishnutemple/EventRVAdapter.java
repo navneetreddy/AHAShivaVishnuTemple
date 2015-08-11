@@ -30,10 +30,9 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
         }
     }
 
-//    HashMap<String, Date> events;
     ArrayList<Event> events;
 
-    public EventRVAdapter() {//HashMap<String, Date> events) {
+    public EventRVAdapter() {
         this.events = Singleton.getEvents();
     }
 
@@ -56,7 +55,7 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
     @Override
     public void onBindViewHolder(final EventViewHolder evh, final int i) {
         evh.eventTitle.setText(events.get(i).getName());
-        evh.eventDateTime.setText(events.get(i).getTime() + " " + events.get(i).getDate());
+        evh.eventDateTime.setText(events.get(i).getStartTime() + " " + events.get(i).getDate());
 
         evh.cv.setOnClickListener(new View.OnClickListener() {
             @Override
