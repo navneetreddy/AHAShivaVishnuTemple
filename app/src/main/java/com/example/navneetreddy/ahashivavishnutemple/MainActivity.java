@@ -3,8 +3,8 @@ package com.example.navneetreddy.ahashivavishnutemple;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -54,6 +53,25 @@ public class MainActivity extends Activity {
 
         if (id == R.id.action_settings) {
             return true;
+        }
+
+        switch (id) {
+            case R.id.settings:
+                return true;
+
+            case android.R.id.home:
+                if (drawerLayout != null) {
+                    if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                        drawerLayout.closeDrawer(Gravity.LEFT);
+                    } else {
+                        drawerLayout.openDrawer(Gravity.LEFT);
+                    }
+                }
+
+                break;
+
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -195,47 +213,16 @@ public class MainActivity extends Activity {
     }
 
     public void setupDrawer() {
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(false);
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
-        ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
-                this,                  /* host Activity */
-                drawerLayout,         /* DrawerLayout object */
-                R.mipmap.ic_launcher,
-                R.string.app_name,  /* "open drawer" description */
-                R.string.app_name  /* "close drawer" description */
-        ) {
-            /** Called when a drawer has settled in a completely closed state. */
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-            }
-
-            /** Called when a drawer has settled in a completely open state. */
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-        };
+        if (getActionBar() != null) {
+            getActionBar().setHomeButtonEnabled(true);
+            getActionBar().setDisplayHomeAsUpEnabled(false);
+        }
 
         String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
-        drawerLayout.setDrawerListener(drawerToggle);
 
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerList = (ListView) findViewById(R.id.left_drawer);
         drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_activated_1, drawerItems));
     }
-    
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            // Check to open/close drawer
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    
 }

@@ -53,4 +53,5 @@
     <string name="add_event_to_google_calendar">Add Event to Google Calendar</string>
     <string name="view_event_details">View Event Details</string>
     <string name="title_activity_pdf_viewer">PdfViewerActivity</string>
+    <string name="welcome">Welcome!</string>
 </resources>
