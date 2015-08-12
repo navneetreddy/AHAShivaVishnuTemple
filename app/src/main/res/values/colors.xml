@@ -1,7 +1,9 @@
 <resources>
 
+    <color name="black">#000000</color>
     <color name="black_overlay">#66000000</color>
     <color name="blanched_almond">#ffebcd</color>
-    <color name="transparent">#00FFFFFF</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00ffffff</color>
 
 </resources>

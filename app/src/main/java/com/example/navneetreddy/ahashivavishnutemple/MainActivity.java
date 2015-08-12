@@ -83,21 +83,22 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 drawerLayout.closeDrawers();
 
+                // TODO - need to change the constant every time a fragment in enabled or disabled.
                 final int HOME = 0;
                 final int ABOUT_US = 1;
                 final int PUJA_SERVICES = 2;
-                final int MAKE_A_DONATION = 3;
-                final int BALA_VIHAR_CLASSES = 4;
-                final int EVENT_GALLERY = 5;
-                final int HINDU_FESTIVALS = 6;
-                final int ANNUAL_PUJA_CALENDAR = 7;
-                final int TEMPLE_NEWS = 8;
-                final int CORPORATE_SPONSORS = 9;
-                final int AHA_FINANCIALS = 10;
-                final int AHA_NEWSLETTER = 11;
-                final int TEMPLE_MANAGEMENT = 12;
-                final int CONTACT_US = 13;
-                final int GALLERY = 14;
+//                final int MAKE_A_DONATION = 3;
+//                final int BALA_VIHAR_CLASSES = 4;
+//                final int EVENT_GALLERY = 5;
+//                final int HINDU_FESTIVALS = 6;
+//                final int ANNUAL_PUJA_CALENDAR = 7;
+//                final int TEMPLE_NEWS = 8;
+//                final int CORPORATE_SPONSORS = 9;
+//                final int AHA_FINANCIALS = 10;
+//                final int AHA_NEWSLETTER = 11;
+//                final int TEMPLE_MANAGEMENT = 12;
+                final int CONTACT_US = 3;
+//                final int GALLERY = 14;
 
                 switch (position) {
                     case HOME:
@@ -121,75 +122,75 @@ public class MainActivity extends Activity {
                                 .commit();
                         break;
 
-                    case MAKE_A_DONATION:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new MakeADonationFragment())
-                                .addToBackStack("MakeADonationFragment")
-                                .commit();
-                        break;
-
-                    case BALA_VIHAR_CLASSES:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new BalaViharClassFragment())
-                                .addToBackStack("BalaViharClassFragment")
-                                .commit();
-                        break;
-
-                    case EVENT_GALLERY:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new EventGalleryFragment())
-                                .addToBackStack("EventGalleryFragment")
-                                .commit();
-                        break;
-
-                    case HINDU_FESTIVALS:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new HinduFestivalsFragment())
-                                .addToBackStack("HinduFestivalsFragment")
-                                .commit();
-                        break;
-
-                    case ANNUAL_PUJA_CALENDAR:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new AnnualPujaCalendarFragment())
-                                .addToBackStack("AnnualPujaCalendarFragment")
-                                .commit();
-                        break;
-
-                    case TEMPLE_NEWS:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new TempleNewsFragment())
-                                .addToBackStack("TempleNewsFragment")
-                                .commit();
-                        break;
-
-                    case CORPORATE_SPONSORS:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new CorporateSponsorsFragment())
-                                .addToBackStack("CorporateSponsorsFragment")
-                                .commit();
-                        break;
-
-                    case AHA_FINANCIALS:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new AHAFinancialsFragment())
-                                .addToBackStack("AHAFinancialsFragment")
-                                .commit();
-                        break;
-
-                    case AHA_NEWSLETTER:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new AHANewsletterFragment())
-                                .addToBackStack("AHANewsletterFragment")
-                                .commit();
-                        break;
-
-                    case TEMPLE_MANAGEMENT:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new TempleManagementFragment())
-                                .addToBackStack("TempleManagementFragment")
-                                .commit();
-                        break;
+//                    case MAKE_A_DONATION:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new MakeADonationFragment())
+//                                .addToBackStack("MakeADonationFragment")
+//                                .commit();
+//                        break;
+//
+//                    case BALA_VIHAR_CLASSES:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new BalaViharClassFragment())
+//                                .addToBackStack("BalaViharClassFragment")
+//                                .commit();
+//                        break;
+//
+//                    case EVENT_GALLERY:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new EventGalleryFragment())
+//                                .addToBackStack("EventGalleryFragment")
+//                                .commit();
+//                        break;
+//
+//                    case HINDU_FESTIVALS:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new HinduFestivalsFragment())
+//                                .addToBackStack("HinduFestivalsFragment")
+//                                .commit();
+//                        break;
+//
+//                    case ANNUAL_PUJA_CALENDAR:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new AnnualPujaCalendarFragment())
+//                                .addToBackStack("AnnualPujaCalendarFragment")
+//                                .commit();
+//                        break;
+//
+//                    case TEMPLE_NEWS:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new TempleNewsFragment())
+//                                .addToBackStack("TempleNewsFragment")
+//                                .commit();
+//                        break;
+//
+//                    case CORPORATE_SPONSORS:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new CorporateSponsorsFragment())
+//                                .addToBackStack("CorporateSponsorsFragment")
+//                                .commit();
+//                        break;
+//
+//                    case AHA_FINANCIALS:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new AHAFinancialsFragment())
+//                                .addToBackStack("AHAFinancialsFragment")
+//                                .commit();
+//                        break;
+//
+//                    case AHA_NEWSLETTER:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new AHANewsletterFragment())
+//                                .addToBackStack("AHANewsletterFragment")
+//                                .commit();
+//                        break;
+//
+//                    case TEMPLE_MANAGEMENT:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new TempleManagementFragment())
+//                                .addToBackStack("TempleManagementFragment")
+//                                .commit();
+//                        break;
 
                     case CONTACT_US:
                         fragmentManager.beginTransaction()
@@ -198,12 +199,12 @@ public class MainActivity extends Activity {
                                 .commit();
                         break;
 
-                    case GALLERY:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new GalleryFragment())
-                                .addToBackStack("GalleryFragment")
-                                .commit();
-                        break;
+//                    case GALLERY:
+//                        fragmentManager.beginTransaction()
+//                                .replace(R.id.fragment_container, new GalleryFragment())
+//                                .addToBackStack("GalleryFragment")
+//                                .commit();
+//                        break;
 
                     default:
                         break;

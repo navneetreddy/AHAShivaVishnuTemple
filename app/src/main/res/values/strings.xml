@@ -7,7 +7,7 @@
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="om_image">Om Image</string>
 
-    <string-array name="drawer_items">
+    <string-array name="all_drawer_items">
         <item>Home</item>
         <item>About Us</item>
         <item>Puja Services</item>
@@ -23,6 +23,13 @@
         <item>Temple Management</item>
         <item>Contact Us</item>
         <item>Gallery</item>
+    </string-array>
+
+    <string-array name="drawer_items">
+        <item>Home</item>
+        <item>About Us</item>
+        <item>Upcoming Events</item>
+        <item>Contact Us</item>
     </string-array>
 
 <!-- TODO: Remove or change this placeholder text -->
@@ -54,4 +61,5 @@
     <string name="view_event_details">View Event Details</string>
     <string name="title_activity_pdf_viewer">PdfViewerActivity</string>
     <string name="welcome">Welcome!</string>
+    <string name="developer">Developed by Navneet Shivam Reddy</string>
 </resources>

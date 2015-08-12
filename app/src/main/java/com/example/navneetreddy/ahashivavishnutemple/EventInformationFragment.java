@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -232,10 +231,11 @@ public class EventInformationFragment extends Fragment {
         return new String[] {String.valueOf(calID), displayName, accountName, ownerName};
     }
 
+    // TODO
     private void saveToGoogleCalendar() {
         String[] dateArray = event.getDate().split("/");
         String[] startTimeArray = event.getStartTime().split("(:)|(\\s)");
-        String[] endTimeArray = event.getEndTime().split("(:)|(\\s)");     //TODO
+        String[] endTimeArray = event.getEndTime().split("(:)|(\\s)");
 
         switch (startTimeArray[2]) {
             case "am": startDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;
@@ -263,7 +263,7 @@ public class EventInformationFragment extends Fragment {
                 Integer.parseInt(dateArray[1]),
                 Integer.parseInt(dateArray[0]),
                 Integer.parseInt(endTimeArray[0]),
-                Integer.parseInt(endTimeArray[1]));  //TODO - change time array to end time.
+                Integer.parseInt(endTimeArray[1]));
 
         Date startDate = startDateCalendar.getTime();
         Date endDate = endDateCalendar.getTime();
