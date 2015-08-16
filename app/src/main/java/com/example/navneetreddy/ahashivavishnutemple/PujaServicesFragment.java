@@ -8,7 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+//import com.twotoasters.jazzylistview.effects.SlideInEffect;
+//import com.twotoasters.jazzylistview.recyclerview.JazzyRecyclerViewScrollListener;
 
 
 /**
@@ -40,6 +41,7 @@ public class PujaServicesFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setHasFixedSize(true);
         rv.setLayoutManager(llm);
+//        rv.setOnScrollListener(new JazzyRecyclerViewScrollListener());
 
         EventRVAdapter adapter = new EventRVAdapter();
         rv.setAdapter(adapter);

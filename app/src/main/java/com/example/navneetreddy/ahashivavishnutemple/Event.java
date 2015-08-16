@@ -12,6 +12,8 @@ public class Event {
     private String name;
     @SerializedName("Event Date")
     private String date;
+    @SerializedName("All Day")
+    private boolean allDay;
     @SerializedName("Start Time")
     private String startTime;
     @SerializedName("End Time")
@@ -44,6 +46,14 @@ public class Event {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public boolean isAllDay() {
+        return allDay;
+    }
+
+    public void setAllDay(boolean allDay) {
+        this.allDay = allDay;
     }
 
     public String getStartTime() {

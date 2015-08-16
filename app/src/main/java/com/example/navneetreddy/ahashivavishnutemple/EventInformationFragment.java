@@ -109,10 +109,15 @@ public class EventInformationFragment extends Fragment {
     private void setFields() {
         eventTitleText.setText(event.getName());
         dateText.setText(event.getDate());
-        timeText.setText(event.getStartTime());
         contactNameText.setText(event.getContactName());
         contactPhoneText.setText(event.getContactPhone());
         contactEmailText.setText(event.getContactEmail());
+
+        if (event.isAllDay()) {
+            timeText.setText("All Day");
+        } else {
+            timeText.setText(event.getStartTime());
+        }
 
         Picasso.with(getActivity())
                 .load(R.drawable.ic_call_black_24dp)
@@ -148,14 +153,22 @@ public class EventInformationFragment extends Fragment {
         contactPhoneText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Intent.ACTION_DIAL,
+                        Uri.parse("tel:" + event.getContactPhone()));
+                startActivity(intent);
             }
         });
 
         contactEmailText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("plain/text");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
+                intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+                startActivity(Intent.createChooser(intent, "Send Email"));
             }
         });
 
@@ -196,6 +209,9 @@ public class EventInformationFragment extends Fragment {
             @Override
             public void onClick(View v) {
 //                saveToGoogleCalendar();
+
+                Toast.makeText(getActivity(), "This feature has not been implemented yet.",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

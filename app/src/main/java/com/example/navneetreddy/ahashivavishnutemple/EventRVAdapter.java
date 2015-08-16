@@ -55,7 +55,12 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
     @Override
     public void onBindViewHolder(final EventViewHolder evh, final int i) {
         evh.eventTitle.setText(events.get(i).getName());
-        evh.eventDateTime.setText(events.get(i).getStartTime() + " " + events.get(i).getDate());
+
+        if (events.get(i).isAllDay()) {
+            evh.eventDateTime.setText("All Day Event");
+        } else {
+            evh.eventDateTime.setText(events.get(i).getStartTime() + " " + events.get(i).getDate());
+        }
 
         evh.cv.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -35,5 +35,8 @@ dependencies {
 
     compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
 
+//    compile 'com.twotoasters.jazzylistview:library:1.2.1'
+//    compile 'com.twotoasters.jazzylistview:library-recyclerview:1.2.1'
+
     compile 'org.mongodb:mongodb-driver:3.0.2'
 }
