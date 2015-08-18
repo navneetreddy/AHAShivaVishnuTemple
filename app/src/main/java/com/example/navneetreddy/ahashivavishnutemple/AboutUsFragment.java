@@ -26,7 +26,6 @@ public class AboutUsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about_us, container, false);
     }
 
@@ -51,6 +50,8 @@ public class AboutUsFragment extends Fragment {
         List<String> mission = new ArrayList<>();
         List<String> volunteer = new ArrayList<>();
 
+        // TODO - change all the concatenated strings to be built using a String Builder.
+
         aha.add("American Hindu Association (AHA) is a non-profit Hindu cultural and " +
                 "heritage organization founded in July of 1997 to serve the greater Madison area " +
                 "community under Section 501 (C) (3) of United States Internal Revenue Service " +
@@ -68,14 +69,14 @@ public class AboutUsFragment extends Fragment {
         mission.add("1. Providing services to devotees of all ages in order to promote and " +
                 "enhance the awareness of principles and practices of Hinduism through " +
                 "activities such as regular prayers, recitals, and public discourses by " +
-                "scholars and invited guests.\n");
+                "scholars and invited guests.");
 
         mission.add("2. Sponsoring and organizing religious festivals and cultural events for " +
                 "all sections of the Indian community to ensure that everyone has an opportunity " +
-                "to celebrate such occasions as done in their respective home countries.\n");
+                "to celebrate such occasions as done in their respective home countries.");
 
         mission.add("3. Promoting and providing yoga, meditation and other educational " +
-                "activities to support personal and spiritual growth of devotees.\n");
+                "activities to support personal and spiritual growth of devotees.");
 
         mission.add("4. Developing, supporting and implementing appropriate devotee activities in" +
                 " support of local, regional, and national community based services and programs.");
@@ -84,7 +85,7 @@ public class AboutUsFragment extends Fragment {
                 "community who are interested in volunteering for the various programs and " +
                 "services provided by AHA. If you are interested please fill in a " +
                 "<a href=\\\"http://aha-svtemple.org/about-us/volunteer-registration/\\\">" +
-                "Volunteer Registration Form</a>.");
+                "Volunteer Registration Form</a>.");        // TODO - fix html to go to webpage.
 
         expandableListHeaderData.add("American Hindu Association");
         expandableListHeaderData.add("Our Vision");

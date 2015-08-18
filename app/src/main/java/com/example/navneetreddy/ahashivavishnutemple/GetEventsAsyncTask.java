@@ -47,7 +47,7 @@ public class GetEventsAsyncTask extends AsyncTask<Event, Void, ArrayList<Event>>
 
             String mongoArray = ("{ artificial_basicdb_list: " + server_output + "}");
 
-            DBObject dbObj = (DBObject) JSON.parse(mongoArray);//o;
+            DBObject dbObj = (DBObject) JSON.parse(mongoArray);
             BasicDBList serverEvents = (BasicDBList) dbObj.get("artificial_basicdb_list");
 
             for (Object serverEvent : serverEvents) {

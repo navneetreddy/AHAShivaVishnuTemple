@@ -131,7 +131,7 @@ public class EventInformationFragment extends Fragment {
                 .centerInside()
                 .into(emailButton);
 
-        try {
+        try {   // TODO - is this getting the right account??
             Intent intent = AccountPicker.newChooseAccountIntent(null, null,
                     new String[] {GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE},
                     false, null, null, null, null);
@@ -208,7 +208,7 @@ public class EventInformationFragment extends Fragment {
         addToGoogleCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                saveToGoogleCalendar();
+//                saveToGoogleCalendar();       // TODO
 
                 Toast.makeText(getActivity(), "This feature has not been implemented yet.",
                         Toast.LENGTH_LONG).show();
@@ -217,6 +217,7 @@ public class EventInformationFragment extends Fragment {
     }
 
     private String[] getCalendar() {
+        // TODO - does this work??
         Cursor cur;
         ContentResolver cr = getActivity().getContentResolver();
 
