@@ -6,6 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -77,6 +79,8 @@ public class OutlineTextView extends TextView {
                         break;
                 }
 
+                a.recycle();
+
                 this.setStroke(strokeWidth, strokeColor, strokeJoin, strokeMiter);
             }
         }
@@ -94,8 +98,9 @@ public class OutlineTextView extends TextView {
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+    public void onDraw(@Nullable Canvas canvas) {
+        if (canvas != null)
+            super.onDraw(canvas);
 
         freeze();
 
@@ -113,7 +118,8 @@ public class OutlineTextView extends TextView {
             this.setTextColor(strokeColor);
             paint.setStrokeWidth(strokeWidth);
 
-            super.onDraw(canvas);
+            if (canvas != null)
+                super.onDraw(canvas);
 
             paint.setStyle(Paint.Style.FILL);
             paint.setTypeface(Typeface.DEFAULT_BOLD);
@@ -161,7 +167,7 @@ public class OutlineTextView extends TextView {
     }
 
     @Override
-    public void invalidate(Rect rect){
+    public void invalidate(@NonNull Rect rect){
         if(!frozen) super.invalidate(rect);
     }
 
