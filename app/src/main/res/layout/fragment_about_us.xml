@@ -25,7 +25,7 @@
         outline:strokeWidth="1dp" />
 
     <ExpandableListView
-        android:id="@+id/expandableListView"
+        android:id="@+id/aboutUsExpandableListView"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_marginStart="10dp"

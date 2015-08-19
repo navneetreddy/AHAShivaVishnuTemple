@@ -184,7 +184,7 @@ public class EventInformationFragment extends Fragment {
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
+                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");           // TODO - put last part in email body.
 
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("plain/text");

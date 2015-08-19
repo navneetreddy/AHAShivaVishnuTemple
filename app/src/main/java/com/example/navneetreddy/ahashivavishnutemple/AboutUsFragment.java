@@ -38,7 +38,7 @@ public class AboutUsFragment extends Fragment {
 
         setListData();
 
-        expandableListView = (ExpandableListView) view.findViewById(R.id.expandableListView);
+        expandableListView = (ExpandableListView) view.findViewById(R.id.aboutUsExpandableListView);
         expandableListAdapter = new ExpandableListAdapter(getActivity(),
                 expandableListHeaderData, expandableListChildData);
         expandableListView.setAdapter(expandableListAdapter);
@@ -49,8 +49,6 @@ public class AboutUsFragment extends Fragment {
         List<String> vision = new ArrayList<>();
         List<String> mission = new ArrayList<>();
         List<String> volunteer = new ArrayList<>();
-
-        // TODO - change all the concatenated strings to be built using a String Builder.
 
         aha.add("American Hindu Association (AHA) is a non-profit Hindu cultural and " +
                 "heritage organization founded in July of 1997 to serve the greater Madison area " +

@@ -62,4 +62,5 @@
     <string name="title_activity_pdf_viewer">PdfViewerActivity</string>
     <string name="welcome">Welcome!</string>
     <string name="developer">Developed by Navneet Shivam Reddy</string>
+    <string name="make_a_donation">Make a Donation</string>
 </resources>
