@@ -1,7 +1,9 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +62,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
+        if (this.listDataChild.get(this.listDataHeader.get(groupPosition)) == null)
+            return 0;
+        
         return this.listDataChild.get(this.listDataHeader.get(groupPosition)).size();
     }
 
@@ -105,5 +110,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    @Override
+    public void onGroupExpanded(int groupPosition) {
+        if (listDataHeader.get(groupPosition).equals("Donate by Credit Card")) {
+            final String creditCardDonationURL = "https://www.networkforgood.org/donation/" +
+                    "ExpressDonation.aspx?ORGID2=391945997&vlrStratCode=" +
+                    "G77h7yhoDkWYFHuML3S2wozODi4u%2fpWrQnv24B%2baGVfibnkNuM0E9RoPSS9%2bFcX0";
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(creditCardDonationURL));
+            context.startActivity(browserIntent);
+        } else {
+            super.onGroupExpanded(groupPosition);
+        }
     }
 }

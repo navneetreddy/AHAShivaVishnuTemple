@@ -3,6 +3,7 @@ package com.example.navneetreddy.ahashivavishnutemple;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.Menu;
@@ -48,23 +49,21 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         switch (id) {
             case R.id.settings:
                 return true;
 
+            case R.id.action_settings:
+                return true;
+
             case android.R.id.home:
                 if (drawerLayout != null) {
-                    if (drawerLayout.isDrawerOpen(Gravity.LEFT)) {
-                        drawerLayout.closeDrawer(Gravity.LEFT);
+                    if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                        drawerLayout.closeDrawer(GravityCompat.START);
                     } else {
-                        drawerLayout.openDrawer(Gravity.LEFT);
+                        drawerLayout.openDrawer(GravityCompat.START);
                     }
                 }
 
@@ -87,7 +86,7 @@ public class MainActivity extends Activity {
                 final int HOME = 0;
                 final int ABOUT_US = 1;
                 final int PUJA_SERVICES = 2;
-//                final int MAKE_A_DONATION = 3;
+                final int MAKE_A_DONATION = 3;
 //                final int BALA_VIHAR_CLASSES = 4;
 //                final int EVENT_GALLERY = 5;
 //                final int HINDU_FESTIVALS = 6;
@@ -97,7 +96,7 @@ public class MainActivity extends Activity {
 //                final int AHA_FINANCIALS = 10;
 //                final int AHA_NEWSLETTER = 11;
 //                final int TEMPLE_MANAGEMENT = 12;
-                final int CONTACT_US = 3;
+                final int CONTACT_US = 4;
 //                final int GALLERY = 14;
 
                 switch (position) {
@@ -122,13 +121,13 @@ public class MainActivity extends Activity {
                                 .commit();
                         break;
 
-//                    case MAKE_A_DONATION:
-//                        fragmentManager.beginTransaction()
-//                                .replace(R.id.fragment_container, new MakeADonationFragment())
-//                                .addToBackStack("MakeADonationFragment")
-//                                .commit();
-//                        break;
-//
+                    case MAKE_A_DONATION:
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.fragment_container, new MakeADonationFragment())
+                                .addToBackStack("MakeADonationFragment")
+                                .commit();
+                        break;
+
 //                    case BALA_VIHAR_CLASSES:
 //                        fragmentManager.beginTransaction()
 //                                .replace(R.id.fragment_container, new BalaViharClassFragment())

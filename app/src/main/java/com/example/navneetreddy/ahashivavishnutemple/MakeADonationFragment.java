@@ -38,14 +38,56 @@ public class MakeADonationFragment extends Fragment {
 
         setListData();
 
-        expandableListView = (ExpandableListView) view.findViewById(R.id.aboutUsExpandableListView);
+        expandableListView = (ExpandableListView) view.findViewById(R.id.donationExpandableListView);
         expandableListAdapter = new ExpandableListAdapter(getActivity(),
                 expandableListHeaderData, expandableListChildData);
         expandableListView.setAdapter(expandableListAdapter);
     }
 
     private void setListData() {
+        List<String> ahaFunds = new ArrayList<>();
+        List<String> sponsorLevels = new ArrayList<>();
+        List<String> donateMonthlyTransfer = new ArrayList<>();
+        List<String> donateCheck = new ArrayList<>();
+//        List<String> donateCreditCard = new ArrayList<>();
 
+        ahaFunds.add("Building Fund");
+        ahaFunds.add("Education Fund");
+        ahaFunds.add("General Fund (Covers Operational Expenses)");
+        ahaFunds.add("Food, Disaster & Humanitarian Aid Fund");
 
+        sponsorLevels.add("$10,000+         Diamond Sponsor");
+        sponsorLevels.add("$5,000+          Platinum Sponsor");
+        sponsorLevels.add("$2,500+          Gold Sponsor");
+        sponsorLevels.add("$1,000+          Silver Sponsor");
+        sponsorLevels.add("$500+            Bronze Sponsor");
+
+        donateMonthlyTransfer.add("Please complete a Pledge/Donation form with appropriate bank " +
+                "account details and mail it to:\n\n" +
+                "The Treasurer\n" +
+                "American Hindu Association\n" +
+                "P O Box 628243\n" +
+                "Middleton, WI 53562");
+
+        donateCheck.add("Please complete a Pledge/Donation form and mail it, along with your " +
+                "donation check (made payable to American Hindu Association) to:\n\n" +
+                "The Treasurer\n" +
+                "American Hindu Association\n" +
+                "P O Box 628243\n" +
+                "Middleton, WI 53562");
+
+//        donateCreditCard.add("");
+
+        expandableListHeaderData.add("AHA Funds Needing Sponsorship");
+        expandableListHeaderData.add("Sponsor Recognition Levels");
+        expandableListHeaderData.add("Donate via Monthly Automatic Funds Transfer");
+        expandableListHeaderData.add("Donate by Check");
+        expandableListHeaderData.add("Donate by Credit Card");
+
+        expandableListChildData.put(expandableListHeaderData.get(0), ahaFunds);
+        expandableListChildData.put(expandableListHeaderData.get(1), sponsorLevels);
+        expandableListChildData.put(expandableListHeaderData.get(2), donateMonthlyTransfer);
+        expandableListChildData.put(expandableListHeaderData.get(3), donateCheck);
+        expandableListChildData.put(expandableListHeaderData.get(4), null);
     }
 }
