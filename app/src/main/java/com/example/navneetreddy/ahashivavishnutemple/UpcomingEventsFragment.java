@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PujaServicesFragment extends Fragment {
+public class UpcomingEventsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_puja_services, container, false);
+        return inflater.inflate(R.layout.fragment_upcoming_events, container, false);
     }
 
     @Override

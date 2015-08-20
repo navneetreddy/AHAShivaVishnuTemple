@@ -1,29 +1,10 @@
 <resources>
     <string name="app_name">AHA Shiva Vishnu Temple</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="om_image">Om Image</string>
-
-    <string-array name="all_drawer_items">
-        <item>Home</item>
-        <item>About Us</item>
-        <item>Puja Services</item>
-        <item>Make A Donation</item>
-        <item>Bala Vihar Classes</item>
-        <item>Event Gallery</item>
-        <item>Hindu Festivals</item>
-        <item>Annual Puja Calendar</item>
-        <item>Temple News</item>
-        <item>Corporate Sponsors</item>
-        <item>AHA Financials</item>
-        <item>AHA Newsletter</item>
-        <item>Temple Management</item>
-        <item>Contact Us</item>
-        <item>Gallery</item>
-    </string-array>
 
     <string-array name="drawer_items">
         <item>Home</item>
@@ -31,6 +12,7 @@
         <item>Upcoming Events</item>
         <item>Make A Donation</item>
         <item>Contact Us</item>
+        <item>Developer</item>
     </string-array>
 
 <!-- TODO: Remove or change this placeholder text -->

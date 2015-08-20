@@ -49,7 +49,6 @@ public class MakeADonationFragment extends Fragment {
         List<String> sponsorLevels = new ArrayList<>();
         List<String> donateMonthlyTransfer = new ArrayList<>();
         List<String> donateCheck = new ArrayList<>();
-//        List<String> donateCreditCard = new ArrayList<>();
 
         ahaFunds.add("Building Fund");
         ahaFunds.add("Education Fund");
@@ -66,17 +65,15 @@ public class MakeADonationFragment extends Fragment {
                 "account details and mail it to:\n\n" +
                 "The Treasurer\n" +
                 "American Hindu Association\n" +
-                "P O Box 628243\n" +
+                "PO Box 628243\n" +
                 "Middleton, WI 53562");
 
         donateCheck.add("Please complete a Pledge/Donation form and mail it, along with your " +
                 "donation check (made payable to American Hindu Association) to:\n\n" +
                 "The Treasurer\n" +
                 "American Hindu Association\n" +
-                "P O Box 628243\n" +
+                "PO Box 628243\n" +
                 "Middleton, WI 53562");
-
-//        donateCreditCard.add("");
 
         expandableListHeaderData.add("AHA Funds Needing Sponsorship");
         expandableListHeaderData.add("Sponsor Recognition Levels");

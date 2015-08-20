@@ -83,7 +83,7 @@ public class AboutUsFragment extends Fragment {
                 "community who are interested in volunteering for the various programs and " +
                 "services provided by AHA. If you are interested please fill in a " +
                 "<a href=\\\"http://aha-svtemple.org/about-us/volunteer-registration/\\\">" +
-                "Volunteer Registration Form</a>.");        // TODO - fix html to go to webpage.
+                "Volunteer Registration Form</a>.");        // TODO - fix html to go to web page.
 
         expandableListHeaderData.add("American Hindu Association");
         expandableListHeaderData.add("Our Vision");
