@@ -46,4 +46,13 @@
     <string name="welcome">Welcome!</string>
     <string name="developer">Developed by Navneet Shivam Reddy</string>
     <string name="make_a_donation">Make a Donation</string>
+    <string name="navneet_reddy">Navneet Reddy</string>
+    <string name="email_navneet">Email Navneet</string>
+    <string name="linkedin_navneet">linkedin.com/in/navneetreddy</string>
+    <string name="github_navneet">github.com/navneetreddy</string>
+    <string name="navneet_picture">Navneet\'s Picture</string>
+    <string name="about_navneet">About Navneet</string>
+    <string name="expanded_image">Expanded Image</string>
+    <string name="degree">B.S. Computer Sciences</string>
+    <string name="school">UW Madison</string>
 </resources>

@@ -129,10 +129,10 @@ public class MainActivity extends Activity {
                         break;
 
                     case DEVELOPER:
-//                        fragmentManager.beginTransaction()
-//                                .replace(R.id.fragment_container, new GalleryFragment())
-//                                .addToBackStack("GalleryFragment")
-//                                .commit();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.fragment_container, new AboutDeveloperFragment())
+                                .addToBackStack("AboutDeveloperFragment")
+                                .commit();
                         Toast.makeText(getApplicationContext(), "NAVNEET'S FRAGMENT!",
                                 Toast.LENGTH_SHORT).show();
                         break;
