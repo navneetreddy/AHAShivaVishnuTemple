@@ -12,6 +12,8 @@ import android.widget.Button;
 
 /**
  * Fragment containing information for contacting the temple.
+ *
+ * @author Navneet Reddy
  */
 public class ContactUsFragment extends Fragment {
 
