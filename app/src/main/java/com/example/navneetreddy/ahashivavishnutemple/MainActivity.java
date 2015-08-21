@@ -15,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 /**
@@ -39,6 +38,7 @@ public class MainActivity extends Activity {
 
         fragmentManager = getFragmentManager();
 
+        /* Instantiates the Singleton class. */
         Singleton.getInstance();
         Singleton.setFragmentManager(fragmentManager);
 
@@ -47,8 +47,9 @@ public class MainActivity extends Activity {
         setupDrawer();
         setDrawerItemClickListener();
 
+        /* Saves the current fragment on device rotation. */
         if (savedInstanceState == null) {
-            // Go to the home page.
+            /* Navigates to the home page. */
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, new HomePageFragment())
                     .addToBackStack(null)
@@ -68,6 +69,7 @@ public class MainActivity extends Activity {
 
         switch (id) {
             case android.R.id.home:
+                /* Opens and closes the navigation drawer on the home button click. */
                 if (drawerLayout != null && !isDrawerLocked) {
                     if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -91,6 +93,10 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Sets up the navigation drawer. Checks if the device is a tablet and locks the navigation
+     * drawer to open if the device is a tablet.
+     */
     private void setupDrawer() {
         String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
 
@@ -101,6 +107,8 @@ public class MainActivity extends Activity {
 
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
 
+        /* Checks if the device is a tablet and locks the
+        navigation drawer to open if it the device is a tablet. */
         if(((ViewGroup.MarginLayoutParams)frameLayout.getLayoutParams()).leftMargin ==
                 (int)getResources().getDimension(R.dimen.drawer_size)) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
@@ -108,6 +116,7 @@ public class MainActivity extends Activity {
             isDrawerLocked = true;
         }
 
+        /* Sets the home button to open the navigation drawer. */
         if (getActionBar() != null) {
             if (!isDrawerLocked)
                 getActionBar().setHomeButtonEnabled(true);
@@ -116,6 +125,9 @@ public class MainActivity extends Activity {
         }
     }
 
+    /**
+     * Listens to the navigation drawer item clicks and directs the user to their destination.
+     */
     private void setDrawerItemClickListener() {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -153,9 +165,6 @@ public class MainActivity extends Activity {
 
                     case DEVELOPER:
                         replaceFragment(new AboutDeveloperFragment());
-
-                        Toast.makeText(getApplicationContext(), "NAVNEET'S FRAGMENT!",
-                                Toast.LENGTH_SHORT).show();
                         break;
 
                     default:
@@ -165,11 +174,19 @@ public class MainActivity extends Activity {
         });
     }
 
+    /**
+     * The current fragment is replaced by the given fragment
+     * if the given fragment is not the same fragment as the current fragment.
+     *
+     * @param newFragment An instance of the new fragment.
+     */
     private void replaceFragment(Fragment newFragment) {
         Fragment container = fragmentManager.findFragmentById(R.id.fragment_container);
 
         boolean isVisible = false;
 
+        /* Checks if the new fragment is the same fragment as
+        the fragment that is currently visible. */
         if (newFragment.getClass().toString().equals(container.getClass().toString())) {
             isVisible = true;
         }
