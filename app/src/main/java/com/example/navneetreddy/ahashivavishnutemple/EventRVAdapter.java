@@ -69,7 +69,7 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
 
                 Singleton.getFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new EventInformationFragment())
-                        .addToBackStack("EventInformationFragment")
+                        .addToBackStack(null)
                         .commit();
             }
         });

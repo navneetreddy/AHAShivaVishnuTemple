@@ -1,15 +1,19 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +28,8 @@ public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
     private ListView drawerList;
 
+    private boolean isDrawerLocked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,14 +40,18 @@ public class MainActivity extends Activity {
         Singleton.getInstance();
         Singleton.setFragmentManager(fragmentManager);
 
+        isDrawerLocked = false;
+
         setupDrawer();
         setDrawerItemClickListener();
 
-        // Go to the home page.
-        fragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, new HomePageFragment())
-                .addToBackStack("HomePageFragment")
-                .commit();
+        if (savedInstanceState == null) {
+            // Go to the home page.
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, new HomePageFragment())
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
     @Override
@@ -55,14 +65,8 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.settings:
-                return true;
-
-            case R.id.action_settings:
-                return true;
-
             case android.R.id.home:
-                if (drawerLayout != null) {
+                if (drawerLayout != null && !isDrawerLocked) {
                     if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                         drawerLayout.closeDrawer(GravityCompat.START);
                     } else {
@@ -72,6 +76,12 @@ public class MainActivity extends Activity {
 
                 break;
 
+            case R.id.settings:
+                return true;
+
+            case R.id.action_settings:
+                return true;
+
             default:
                 break;
         }
@@ -79,11 +89,37 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void setupDrawer() {
+        String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerList = (ListView) findViewById(R.id.left_drawer);
+        drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_list_item_activated_1, drawerItems));
+
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fragment_container);
+
+        if(((ViewGroup.MarginLayoutParams)frameLayout.getLayoutParams()).leftMargin ==
+                (int)getResources().getDimension(R.dimen.drawer_size)) {
+            drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);
+            drawerLayout.setScrimColor(Color.TRANSPARENT);
+            isDrawerLocked = true;
+        }
+
+        if (getActionBar() != null) {
+            if (!isDrawerLocked)
+                getActionBar().setHomeButtonEnabled(true);
+
+            getActionBar().setDisplayHomeAsUpEnabled(false);
+        }
+    }
+
     public void setDrawerItemClickListener() {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                drawerLayout.closeDrawers();
+                if (!isDrawerLocked)
+                    drawerLayout.closeDrawers();
 
                 final int HOME = 0;
                 final int ABOUT_US = 1;
@@ -94,45 +130,28 @@ public class MainActivity extends Activity {
 
                 switch (position) {
                     case HOME:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new HomePageFragment())
-                                .addToBackStack("HomePageFragment")
-                                .commit();
+                        replaceFragment(new HomePageFragment());
                         break;
 
                     case ABOUT_US:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new AboutUsFragment())
-                                .addToBackStack("AboutUsFragment")
-                                .commit();
+                        replaceFragment(new AboutUsFragment());
                         break;
 
                     case UPCOMING_EVENTS:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new UpcomingEventsFragment())
-                                .addToBackStack("UpcomingEventsFragment")
-                                .commit();
+                        replaceFragment(new UpcomingEventsFragment());
                         break;
 
                     case MAKE_A_DONATION:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new MakeADonationFragment())
-                                .addToBackStack("MakeADonationFragment")
-                                .commit();
+                        replaceFragment(new MakeADonationFragment());
                         break;
 
                     case CONTACT_US:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new ContactUsFragment())
-                                .addToBackStack("ContactUsFragment")
-                                .commit();
+                        replaceFragment(new ContactUsFragment());
                         break;
 
                     case DEVELOPER:
-                        fragmentManager.beginTransaction()
-                                .replace(R.id.fragment_container, new AboutDeveloperFragment())
-                                .addToBackStack("AboutDeveloperFragment")
-                                .commit();
+                        replaceFragment(new AboutDeveloperFragment());
+
                         Toast.makeText(getApplicationContext(), "NAVNEET'S FRAGMENT!",
                                 Toast.LENGTH_SHORT).show();
                         break;
@@ -144,17 +163,20 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void setupDrawer() {
-        if (getActionBar() != null) {
-            getActionBar().setHomeButtonEnabled(true);
-            getActionBar().setDisplayHomeAsUpEnabled(false);
+    private void replaceFragment(Fragment newFragment) {
+        Fragment container = fragmentManager.findFragmentById(R.id.fragment_container);
+
+        boolean isVisible = false;
+
+        if (newFragment.getClass().toString().equals(container.getClass().toString())) {
+            isVisible = true;
         }
 
-        String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
-
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
-        drawerList.setAdapter(new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_list_item_activated_1, drawerItems));
+        if (!isVisible) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, newFragment)
+                    .addToBackStack(null)
+                    .commit();
+        }
     }
 }

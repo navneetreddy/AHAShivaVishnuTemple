@@ -4,6 +4,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="drawer_size">240dp</dimen>
+
     <dimen name="layout_margin">10dp</dimen>
     <dimen name="text_size_developer_page">12sp</dimen>
 

@@ -1,16 +1,24 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AboutDeveloperFragment extends Fragment {
+
+    private ImageButton imageThumb;
+    private Button emailButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,5 +29,52 @@ public class AboutDeveloperFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        imageThumb = (ImageButton) view.findViewById(R.id.navneetPicture);
+        emailButton = (Button) view.findViewById(R.id.navneetEmailButton);
+
+        TextView description = (TextView) view.findViewById(R.id.navneetDescription);
+
+        String descriptionText = "";
+
+        description.setText(descriptionText);
+
+        imageThumbClickListener();
+        emailButtonClickListener();
+    }
+
+    private void imageThumbClickListener() {
+        imageThumb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imageThumb.setEnabled(false);
+
+                // TODO - image zoom.
+            }
+        });
+    }
+
+    private void emailButtonClickListener() {
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailButton.setEnabled(false);
+
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Message from AHA Android App");
+
+                startActivity(Intent.createChooser(emailIntent, "Choose Mail Application"));
+            }
+        });
+    }
+
+    @Override
+    public void onResume() {
+        super.onCreate(null);
+        imageThumb.setEnabled(true);
+        emailButton.setEnabled(true);
     }
 }
