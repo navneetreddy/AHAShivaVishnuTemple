@@ -13,15 +13,14 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment about AHA and the temple.
+ *
+ * @author Navneet Reddy
  */
 public class AboutUsFragment extends Fragment {
 
-    List<String> expandableListHeaderData;
-    HashMap<String, List<String>> expandableListChildData;
-
-    ExpandableListView expandableListView;
-    ExpandableListAdapter expandableListAdapter;
+    private List<String> expandableListHeaderData;
+    private HashMap<String, List<String>> expandableListChildData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,12 +37,16 @@ public class AboutUsFragment extends Fragment {
 
         setListData();
 
-        expandableListView = (ExpandableListView) view.findViewById(R.id.aboutUsExpandableListView);
-        expandableListAdapter = new ExpandableListAdapter(getActivity(),
+        ExpandableListView expandableListView =
+                (ExpandableListView) view.findViewById(R.id.aboutUsExpandableListView);
+        ExpandableListAdapter expandableListAdapter = new ExpandableListAdapter(getActivity(),
                 expandableListHeaderData, expandableListChildData);
         expandableListView.setAdapter(expandableListAdapter);
     }
 
+    /**
+     * Sets the data that will be shown in the expanded list view.
+     */
     private void setListData() {
         List<String> aha = new ArrayList<>();
         List<String> vision = new ArrayList<>();

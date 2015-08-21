@@ -20,10 +20,12 @@ import android.widget.Toast;
 
 /**
  * Main Activity of the application.
+ *
+ * @author Navneet Reddy
  */
 public class MainActivity extends Activity {
 
-    FragmentManager fragmentManager;
+    private FragmentManager fragmentManager;
 
     private DrawerLayout drawerLayout;
     private ListView drawerList;
@@ -89,7 +91,7 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setupDrawer() {
+    private void setupDrawer() {
         String[] drawerItems = getResources().getStringArray(R.array.drawer_items);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -114,7 +116,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void setDrawerItemClickListener() {
+    private void setDrawerItemClickListener() {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

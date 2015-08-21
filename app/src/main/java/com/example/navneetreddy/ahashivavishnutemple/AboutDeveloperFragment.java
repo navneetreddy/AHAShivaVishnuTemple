@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment containing information about the developer of this app - Navneet Reddy.
+ *
+ * @author Navneet Reddy
  */
 public class AboutDeveloperFragment extends Fragment {
 
@@ -43,6 +45,9 @@ public class AboutDeveloperFragment extends Fragment {
         emailButtonClickListener();
     }
 
+    /**
+     * Zooms the image to full screen when the image thumbnail is clicked.
+     */
     private void imageThumbClickListener() {
         imageThumb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +59,9 @@ public class AboutDeveloperFragment extends Fragment {
         });
     }
 
+    /**
+     * Starts an intent to email the developer.
+     */
     private void emailButtonClickListener() {
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override

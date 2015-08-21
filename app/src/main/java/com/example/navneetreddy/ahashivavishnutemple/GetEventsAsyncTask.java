@@ -15,7 +15,9 @@ import java.util.ArrayList;
 
 
 /**
- * Created by NavneetReddy on 8/9/15.
+ * Async Task to connect to the MongoDB and pull the list of events.
+ *
+ * @author Navneet Reddy
  */
 public class GetEventsAsyncTask extends AsyncTask<Event, Void, ArrayList<Event>> {
 

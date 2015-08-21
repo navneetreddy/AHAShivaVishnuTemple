@@ -28,7 +28,9 @@ import java.util.TimeZone;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment containing the information about a given event.
+ *
+ * @author Navneet Reddy
  */
 public class EventInformationFragment extends Fragment {
 

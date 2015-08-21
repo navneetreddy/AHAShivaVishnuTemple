@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Home page of the app where the users are directed to after the splash screen.
+ *
+ * @author Navneet Reddy
  */
 public class HomePageFragment extends Fragment {
 

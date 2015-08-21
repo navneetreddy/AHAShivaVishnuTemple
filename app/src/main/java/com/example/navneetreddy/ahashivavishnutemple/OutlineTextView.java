@@ -12,8 +12,11 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+
 /**
- * Created by NavneetReddy on 8/5/15.
+ * Custom text view. Text is outlined with the given color.
+ *
+ * @author Navneet Reddy
  */
 public class OutlineTextView extends TextView {
 

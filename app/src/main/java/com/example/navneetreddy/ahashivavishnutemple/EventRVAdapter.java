@@ -11,10 +11,15 @@ import java.util.ArrayList;
 
 
 /**
- * Created by NavneetReddy on 8/5/15.
+ * Adapter for the recycler view to display all the upcoming events.
+ *
+ * @author Navneet Reddy
  */
 public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventViewHolder> {
 
+    /**
+     * View Holder that holds information about an event.
+     */
     public static class EventViewHolder extends RecyclerView.ViewHolder {
 
         CardView cv;

@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment to display a list of upcoming events in a recycler view.
+ *
+ * @author Navneet Reddy
  */
 public class UpcomingEventsFragment extends Fragment {
 
@@ -32,6 +36,10 @@ public class UpcomingEventsFragment extends Fragment {
             e.printStackTrace();
         }
 
+        // TODO - remove the past events from the list here.
+        // Store events as a date to Event class.
+        // Singleton.setEvents(removePastDates(Singleton.getEvents()));
+
         /* Set up the recycler view */
         RecyclerView rv = (RecyclerView) view.findViewById(R.id.upcomingEventsRV);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -41,4 +49,9 @@ public class UpcomingEventsFragment extends Fragment {
         EventRVAdapter adapter = new EventRVAdapter();
         rv.setAdapter(adapter);
     }
+
+//    private ArrayList<Event> removePastDates(ArrayList<Event> events) {
+//        // TODO
+//        return null;
+//    }
 }

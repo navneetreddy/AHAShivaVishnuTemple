@@ -13,7 +13,9 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment containing information about how to donate to the temple.
+ *
+ * @author Navneet Reddy
  */
 public class MakeADonationFragment extends Fragment {
 
@@ -44,6 +46,9 @@ public class MakeADonationFragment extends Fragment {
         expandableListView.setAdapter(expandableListAdapter);
     }
 
+    /**
+     * Sets the data that will be shown in the expanded list view.
+     */
     private void setListData() {
         List<String> ahaFunds = new ArrayList<>();
         List<String> sponsorLevels = new ArrayList<>();
@@ -55,6 +60,7 @@ public class MakeADonationFragment extends Fragment {
         ahaFunds.add("General Fund (Covers Operational Expenses)");
         ahaFunds.add("Food, Disaster & Humanitarian Aid Fund");
 
+        // TODO - format correctly.
         sponsorLevels.add("$10,000+         Diamond Sponsor");
         sponsorLevels.add("$5,000+          Platinum Sponsor");
         sponsorLevels.add("$2,500+          Gold Sponsor");

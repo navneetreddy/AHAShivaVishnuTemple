@@ -15,7 +15,9 @@ import java.util.List;
 
 
 /**
- * Created by NavneetReddy on 8/16/15.
+ * Adapter for the expandable lists.
+ *
+ * @author Navneet Reddy
  */
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 

@@ -11,7 +11,7 @@ import android.widget.Button;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * Fragment containing information for contacting the temple.
  */
 public class ContactUsFragment extends Fragment {
 
@@ -48,6 +48,9 @@ public class ContactUsFragment extends Fragment {
         websiteButton.setEnabled(true);
     }
 
+    /**
+     * Handles the clicks for all the buttons in the fragment.
+     */
     private void setOnClickListeners() {
         directionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
