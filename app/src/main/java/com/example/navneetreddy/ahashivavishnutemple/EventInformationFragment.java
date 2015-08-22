@@ -22,7 +22,6 @@ import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.squareup.picasso.Picasso;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -53,8 +52,6 @@ public class EventInformationFragment extends Fragment {
     private static final int REQUEST_CODE_EMAIL = 1;
 
     private String[] calendarInfo;
-    private Calendar startDateCalendar;
-    private Calendar endDateCalendar;
 
     private String userEmail;
 
@@ -103,9 +100,6 @@ public class EventInformationFragment extends Fragment {
 
         viewEventDetailsButton = (Button) view.findViewById(R.id.viewEventDetailsButton);
         addToGoogleCalendarButton = (Button) view.findViewById(R.id.addToGoogleCalendarButton);
-
-        startDateCalendar = Calendar.getInstance();
-        endDateCalendar = Calendar.getInstance();
     }
 
     private void setFields() {
@@ -252,40 +246,8 @@ public class EventInformationFragment extends Fragment {
 
     // TODO
     private void saveToGoogleCalendar() {
-        String[] dateArray = event.getDate().split("/");
-        String[] startTimeArray = event.getStartTime().split("(:)|(\\s)");
-        String[] endTimeArray = event.getEndTime().split("(:)|(\\s)");
-
-        switch (startTimeArray[2]) {
-            case "am": startDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;
-            case "pm": startDateCalendar.set(Calendar.AM_PM, Calendar.PM); break;
-            default: break;
-        }
-
-        switch (endTimeArray[2]) {
-            case "am": endDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;
-            case "pm": endDateCalendar.set(Calendar.AM_PM, Calendar.PM); break;
-            default: break;
-        }
-
-        startDateCalendar.set(Calendar.AM_PM, Calendar.PM);
-        startDateCalendar.set(
-                Integer.parseInt(dateArray[2]),
-                Integer.parseInt(dateArray[1]),
-                Integer.parseInt(dateArray[0]),
-                Integer.parseInt(startTimeArray[0]),
-                Integer.parseInt(startTimeArray[1]));
-
-        endDateCalendar.set(Calendar.AM_PM, Calendar.PM);
-        endDateCalendar.set(
-                Integer.parseInt(dateArray[2]),
-                Integer.parseInt(dateArray[1]),
-                Integer.parseInt(dateArray[0]),
-                Integer.parseInt(endTimeArray[0]),
-                Integer.parseInt(endTimeArray[1]));
-
-        Date startDate = startDateCalendar.getTime();
-        Date endDate = endDateCalendar.getTime();
+        Date startDate = event.getStartDate();
+        Date endDate = event.getEndDate();
 //        String comments = comments_entry.getText().toString();
         String title = event.getName();
 

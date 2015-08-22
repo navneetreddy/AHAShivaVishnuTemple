@@ -2,6 +2,8 @@ package com.example.navneetreddy.ahashivavishnutemple;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 
 /**
  * Contains the information about a single event.
@@ -20,6 +22,9 @@ public class Event {
     private String startTime;
     @SerializedName("End Time")
     private String endTime;
+
+    private Date startDate;
+    private Date endDate;
 
     @SerializedName("Contact Name")
     private String contactName;
@@ -125,6 +130,23 @@ public class Event {
      */
     public void setEndTime(String endTime) {
         this.endTime = endTime;
+    }
+
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     /**
