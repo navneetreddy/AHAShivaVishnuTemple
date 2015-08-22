@@ -1,6 +1,7 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.app.FragmentManager;
+import android.content.Context;
 
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public class Singleton {
 
     private static Singleton instance = new Singleton();
 
+    private static Context context;
     private static FragmentManager fragmentManager;
     private static ArrayList<Event> events;
     private static Event eventToDisplay;
@@ -37,6 +39,24 @@ public class Singleton {
      * Constructor that creates a new Singleton class.
      */
     private Singleton() {}
+
+    /**
+     * Sets the application context.
+     *
+     * @param context The application context.
+     */
+    public static void setContext(Context context) {
+        Singleton.context = context;
+    }
+
+    /**
+     * Gets the application context.
+     *
+     * @return The application context.
+     */
+    public static Context getContext() {
+        return context;
+    }
 
     /**
      * Sets the fragment manager.

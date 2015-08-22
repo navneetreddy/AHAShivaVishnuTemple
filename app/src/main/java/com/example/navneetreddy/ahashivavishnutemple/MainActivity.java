@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 
         /* Instantiates the Singleton class. */
         Singleton.getInstance();
+        Singleton.setContext(this);
         Singleton.setFragmentManager(fragmentManager);
 
         isDrawerLocked = false;
