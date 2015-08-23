@@ -21,6 +21,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+
 
 /**
  * Fragment containing information about the developer of this app - Navneet Reddy.
@@ -31,6 +35,8 @@ public class AboutDeveloperFragment extends Fragment {
 
     private static final int BLANCHARD_ALMOND =
             Singleton.getContext().getResources().getColor(R.color.blanched_almond);
+
+    private Transformation transformation;
 
     private Animator currentAnimator;
     private int animationDuration;
@@ -88,6 +94,18 @@ public class AboutDeveloperFragment extends Fragment {
         github = (TextView) view.findViewById(R.id.navneetGitHub);
 
         imageID = R.drawable.navneet_picture_1;
+
+        transformation = new RoundedTransformationBuilder()
+                .cornerRadiusDp(50)
+                .oval(false)
+                .build();
+
+        Picasso.with(getActivity())
+                .load(imageID)
+//                .resize(150,150)
+//                .centerInside()
+                .transform(transformation)
+                .into(imageThumb);
     }
 
     private void setDescription() {
@@ -136,7 +154,13 @@ public class AboutDeveloperFragment extends Fragment {
         }
 
         // Load the high-resolution "zoomed-in" image.
-        expandedImage.setImageResource(imageID);
+//        expandedImage.setImageResource(imageID);
+        Picasso.with(getActivity())
+                .load(imageID)
+//                .resize(150,150)
+//                .centerInside()
+                .transform(transformation)
+                .into(expandedImage);
 
         // Calculate the starting and ending bounds for the zoomed-in image.
         // This step involves lots of math. Yay, math.
