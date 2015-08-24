@@ -102,8 +102,6 @@ public class AboutDeveloperFragment extends Fragment {
 
         Picasso.with(getActivity())
                 .load(imageID)
-//                .resize(150,150)
-//                .centerInside()
                 .transform(transformation)
                 .into(imageThumb);
     }
@@ -154,11 +152,8 @@ public class AboutDeveloperFragment extends Fragment {
         }
 
         // Load the high-resolution "zoomed-in" image.
-//        expandedImage.setImageResource(imageID);
         Picasso.with(getActivity())
                 .load(imageID)
-//                .resize(150,150)
-//                .centerInside()
                 .transform(transformation)
                 .into(expandedImage);
 
