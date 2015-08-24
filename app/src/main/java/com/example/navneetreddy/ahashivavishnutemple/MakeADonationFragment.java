@@ -46,6 +46,15 @@ public class MakeADonationFragment extends Fragment {
         expandableListView.setAdapter(expandableListAdapter);
     }
 
+    @Override
+    public void onResume() {
+        super.onCreate(null);
+
+        /* Collapse all the expandable list groups. */
+        for (int i = 0; i < expandableListAdapter.getGroupCount(); i++)
+            expandableListView.collapseGroup(i);
+    }
+
     /**
      * Sets the data that will be shown in the expanded list view.
      */

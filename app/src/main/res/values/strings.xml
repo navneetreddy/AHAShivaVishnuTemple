@@ -55,4 +55,6 @@
     <string name="expanded_image">Expanded Image</string>
     <string name="degree">B.S. Computer Sciences</string>
     <string name="school">UW Madison</string>
+    <string name="call_contact_button">Call Contact Button</string>
+    <string name="email_contact_button">Email Contact Button</string>
 </resources>
