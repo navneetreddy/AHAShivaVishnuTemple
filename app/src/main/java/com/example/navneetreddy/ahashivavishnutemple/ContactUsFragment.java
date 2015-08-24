@@ -74,7 +74,7 @@ public class ContactUsFragment extends Fragment {
             public void onClick(View v) {
                 callButton.setEnabled(false);
 
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:6082348634"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:6082348634"));
                 startActivity(intent);
             }
         });
