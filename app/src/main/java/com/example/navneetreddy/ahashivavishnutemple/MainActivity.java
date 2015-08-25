@@ -94,6 +94,13 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 1) {
+            super.onBackPressed();
+        }
+    }
+
     /**
      * Sets up the navigation drawer. Checks if the device is a tablet and locks the navigation
      * drawer to open if the device is a tablet.
@@ -119,8 +126,9 @@ public class MainActivity extends Activity {
 
         /* Sets the home button to open the navigation drawer. */
         if (getActionBar() != null) {
-            if (!isDrawerLocked)
+            if (!isDrawerLocked) {
                 getActionBar().setHomeButtonEnabled(true);
+            }
 
             getActionBar().setDisplayHomeAsUpEnabled(false);
         }
@@ -133,8 +141,9 @@ public class MainActivity extends Activity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (!isDrawerLocked)
+                if (!isDrawerLocked) {
                     drawerLayout.closeDrawers();
+                }
 
                 final int HOME = 0;
                 final int ABOUT_US = 1;

@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -14,9 +15,88 @@ import android.view.ViewGroup;
  */
 public class HomePageFragment extends Fragment {
 
+    private Button aboutUsButton;
+    private Button contactUsButton;
+    private Button upcomingEventsButton;
+    private Button makeADonationButton;
+    private Button aboutDeveloperButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home_page, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        initializeFields(view);
+        setButtonOnClickListeners();
+    }
+
+    @Override
+    public void onResume() {
+        super.onCreate(null);
+
+        aboutUsButton.setEnabled(true);
+        contactUsButton.setEnabled(true);
+        upcomingEventsButton.setEnabled(true);
+        makeADonationButton.setEnabled(true);
+        aboutDeveloperButton.setEnabled(true);
+    }
+
+    private void initializeFields(View view) {
+        aboutUsButton = (Button) view.findViewById(R.id.aboutUsButton);
+        contactUsButton = (Button) view.findViewById(R.id.contactUsButton);
+        upcomingEventsButton = (Button) view.findViewById(R.id.upcomingEventsButton);
+        makeADonationButton = (Button) view.findViewById(R.id.makeADonationButton);
+        aboutDeveloperButton = (Button) view.findViewById(R.id.aboutDeveloperButton);
+    }
+
+    private void setButtonOnClickListeners() {
+        aboutUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFragment(v, new AboutUsFragment());
+            }
+        });
+
+        contactUsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFragment(v, new ContactUsFragment());
+            }
+        });
+
+        upcomingEventsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFragment(v, new UpcomingEventsFragment());
+            }
+        });
+
+        makeADonationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFragment(v, new MakeADonationFragment());
+            }
+        });
+
+        aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToFragment(v, new AboutDeveloperFragment());
+            }
+        });
+    }
+
+    private void goToFragment(View v, Fragment fragment) {
+        v.setEnabled(false);
+
+        getFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
