@@ -41,12 +41,15 @@ public class AboutDeveloperFragment extends Fragment {
     private Animator currentAnimator;
     private int animationDuration;
 
-    private int imageID;
+    private int navneetImageID;
 
     private View rootView;
     private LinearLayout backgroundView;
 
     private Button emailButton;
+
+    private ImageButton linkedInButton;
+    private ImageButton githubButton;
 
     private ImageButton imageThumb;
     private ImageView expandedImage;
@@ -56,8 +59,6 @@ public class AboutDeveloperFragment extends Fragment {
     private TextView school;
     private TextView about;
     private TextView description;
-    private TextView linkedIn;
-    private TextView github;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -72,15 +73,27 @@ public class AboutDeveloperFragment extends Fragment {
 
         initializeFields(view);
         setDescription();
-        
-        emailButtonClickListener();
+
+        buttonClickListeners();
         imageThumbClickListener();
+    }
+
+    @Override
+    public void onResume() {
+        super.onCreate(null);
+
+        linkedInButton.setEnabled(true);
+        githubButton.setEnabled(true);
+        emailButton.setEnabled(true);
     }
 
     private void initializeFields(View view) {
         backgroundView = (LinearLayout) view.findViewById(R.id.navneetFragmentLinearLayout);
 
         emailButton = (Button) view.findViewById(R.id.navneetEmailButton);
+
+        linkedInButton = (ImageButton) view.findViewById(R.id.linkedinImageButton);
+        githubButton = (ImageButton) view.findViewById(R.id.githubImageButton);
 
         imageThumb = (ImageButton) view.findViewById(R.id.navneetPicture);
         expandedImage = (ImageView) view.findViewById(R.id.navneetExpandedImage);
@@ -90,10 +103,8 @@ public class AboutDeveloperFragment extends Fragment {
         school = (TextView) view.findViewById(R.id.navneetSchool);
         about = (TextView) view.findViewById(R.id.navneetAbout);
         description = (TextView) view.findViewById(R.id.navneetDescription);
-        linkedIn = (TextView) view.findViewById(R.id.navneetLinkedIn);
-        github = (TextView) view.findViewById(R.id.navneetGitHub);
 
-        imageID = R.drawable.navneet_picture_1;
+        navneetImageID = R.drawable.navneet_picture_1;
 
         transformation = new RoundedTransformationBuilder()
                 .cornerRadiusDp(50)
@@ -101,9 +112,17 @@ public class AboutDeveloperFragment extends Fragment {
                 .build();
 
         Picasso.with(getActivity())
-                .load(imageID)
+                .load(navneetImageID)
                 .transform(transformation)
                 .into(imageThumb);
+
+        Picasso.with(getActivity())
+                .load(R.drawable.linkedin_logo)
+                .into(linkedInButton);
+
+        Picasso.with(getActivity())
+                .load(R.drawable.github_logo)
+                .into(githubButton);
     }
 
     private void setDescription() {
@@ -113,9 +132,27 @@ public class AboutDeveloperFragment extends Fragment {
     }
 
     /**
-     * Starts an intent to email the developer.
+     * Handles the clickes on the LinkedIn, GitHub, and email buttons.
      */
-    private void emailButtonClickListener() {
+    private void buttonClickListeners() {
+        linkedInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                linkedInButton.setEnabled(false);
+
+                goToWebsite("http://www.linkedin.com/in/navneetreddy");
+            }
+        });
+
+        githubButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                githubButton.setEnabled(false);
+
+                goToWebsite("http://www.github.com/navneetreddy");
+            }
+        });
+
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,6 +169,12 @@ public class AboutDeveloperFragment extends Fragment {
         });
     }
 
+    private void goToWebsite(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
+    }
+
     private void imageThumbClickListener() {
         imageThumb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,15 +188,15 @@ public class AboutDeveloperFragment extends Fragment {
         animationDuration = Singleton.getContext()
                 .getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        // If there's an animation in progress, cancel it
-        // immediately and proceed with this one.
+        // If there's an animation in progress,
+        // cancel it immediately and proceed with this one.
         if (currentAnimator != null) {
             currentAnimator.cancel();
         }
 
         // Load the high-resolution "zoomed-in" image.
         Picasso.with(getActivity())
-                .load(imageID)
+                .load(navneetImageID)
                 .transform(transformation)
                 .into(expandedImage);
 
@@ -256,7 +299,7 @@ public class AboutDeveloperFragment extends Fragment {
                         .ofFloat(expandedImage, View.X, startBounds.left))
                         .with(ObjectAnimator
                                 .ofFloat(expandedImage,
-                                        View.Y,startBounds.top))
+                                        View.Y, startBounds.top))
                         .with(ObjectAnimator
                                 .ofFloat(expandedImage,
                                         View.SCALE_X, startScaleFinal))
@@ -300,8 +343,6 @@ public class AboutDeveloperFragment extends Fragment {
         description.setBackgroundColor(Color.TRANSPARENT);
         degree.setBackgroundColor(Color.TRANSPARENT);
         school.setBackgroundColor(Color.TRANSPARENT);
-        linkedIn.setBackgroundColor(Color.TRANSPARENT);
-        github.setBackgroundColor(Color.TRANSPARENT);
 
         expandedImage.setVisibility(View.VISIBLE);
         expandedImage.setAlpha(1f);
@@ -321,16 +362,8 @@ public class AboutDeveloperFragment extends Fragment {
         description.setBackgroundColor(BLANCHARD_ALMOND);
         degree.setBackgroundColor(BLANCHARD_ALMOND);
         school.setBackgroundColor(BLANCHARD_ALMOND);
-        linkedIn.setBackgroundColor(BLANCHARD_ALMOND);
-        github.setBackgroundColor(BLANCHARD_ALMOND);
 
         expandedImage.setVisibility(View.GONE);
         currentAnimator = null;
-    }
-
-    @Override
-    public void onResume() {
-        super.onCreate(null);
-        emailButton.setEnabled(true);
     }
 }

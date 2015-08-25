@@ -74,31 +74,6 @@
                     android:text="@string/school"
                     android:textSize="@dimen/text_size_developer_page" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="9dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/navneetLinkedIn"
-                    android:text="@string/linkedin_navneet"
-                    android:autoLink="web"
-                    android:textSize="@dimen/text_size_developer_page" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="5dp"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/navneetGitHub"
-                    android:text="@string/github_navneet"
-                    android:autoLink="web"
-                    android:textSize="@dimen/text_size_developer_page" />
-
             </LinearLayout>
 
         </LinearLayout>
@@ -122,7 +97,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:id="@+id/navneetDescription" />
 
         </LinearLayout>
@@ -135,10 +110,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/rounded_corners"
                 android:id="@+id/navneetEmailButton"
                 android:text="@string/email_navneet" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_above="@+id/navneetEmailButton"
+                android:weightSum="2" >
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:scaleType="fitEnd"
+                    android:background="@color/transparent"
+                    android:id="@+id/linkedinImageButton"
+                    android:contentDescription="@string/linkedin_button" />
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:scaleType="fitEnd"
+                    android:background="@color/transparent"
+                    android:id="@+id/githubImageButton"
+                    android:contentDescription="@string/github_button" />
+
+            </LinearLayout>
 
         </RelativeLayout>
 
