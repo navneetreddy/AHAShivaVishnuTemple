@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="10dp"
-    tools:context="com.example.navneetreddy.ahashivavishnutemple.ContactUsFragment" >
+    tools:context="com.example.navneetreddy.ahashivavishnutemple.ContactUsFragment">
 
     <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
         android:layout_width="wrap_content"
@@ -24,14 +24,17 @@
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="2" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ScrollView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_weight="1" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,58 +74,68 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:gravity="center"
-                    android:text="@string/aha_address_line_2" />
+                    android:text="@string/aha_address_line_2"/>
 
             </LinearLayout>
 
-            <Button
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_margin="10dp"
-                android:padding="10dp"
-                android:text="@string/directions"
-                android:id="@+id/directionsButton" />
+                android:orientation="vertical" >
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/call"
-                android:id="@+id/phoneButton" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:text="@string/directions"
+                    android:id="@+id/directionsButton" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/email"
-                android:id="@+id/emailButton" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:text="@string/call"
+                    android:id="@+id/phoneButton" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/visit_website"
-                android:id="@+id/websiteButton" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:text="@string/email"
+                    android:id="@+id/emailButton" />
 
-        </LinearLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/rounded_corners"
+                    android:layout_marginBottom="10dp"
+                    android:padding="10dp"
+                    android:text="@string/visit_website"
+                    android:id="@+id/websiteButton" />
 
-    </ScrollView>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </LinearLayout>
