@@ -48,10 +48,12 @@ public class UpcomingEventsFragment extends Fragment {
 
         EventRVAdapter adapter = new EventRVAdapter();
         rv.setAdapter(adapter);
+
+// TODO - have an option for the user to hide events on swipe left and save the hidden events in shared preferences. Would need a Boolean field in Event for hidden. 
     }
 
     /**
-     * Sets the start and end dates as a date objects for each event.
+     * Sets the start and end dates as date objects for each event.
      * If the time for the event is before the current time, remove the event from the list.
      */
     private void setEventDates() {
