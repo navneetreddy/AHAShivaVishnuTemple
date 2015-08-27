@@ -29,7 +29,8 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="center"
-        android:src="@drawable/om_symbol_1" />
+        android:src="@drawable/om_symbol_1"
+        android:contentDescription="@string/om_image" />
 
     <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
         android:layout_width="wrap_content"
