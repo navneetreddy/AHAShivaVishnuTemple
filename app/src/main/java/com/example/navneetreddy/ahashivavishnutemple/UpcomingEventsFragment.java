@@ -61,6 +61,12 @@ public class UpcomingEventsFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        checkNetworkConnection();
+        super.onResume();
+    }
+
     /**
      * Checks if the app is connected to the network.
      *
