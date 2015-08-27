@@ -105,7 +105,7 @@ public class UpcomingEventsFragment extends Fragment {
     }
 
     /**
-     * Sets the start and end dates as a date objects for each event.
+     * Sets the start and end dates as date objects for each event.
      * If the time for the event is before the current time, remove the event from the list.
      */
     private void setEventDates() {
