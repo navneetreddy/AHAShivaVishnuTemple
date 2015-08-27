@@ -61,4 +61,7 @@
     <string name="about_the_developer">About the Developer</string>
     <string name="linkedin_button">LinkedIn Button</string>
     <string name="github_button">GitHub Button</string>
+    <string name="title_activity_pdfviewer">PDFViewerActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
