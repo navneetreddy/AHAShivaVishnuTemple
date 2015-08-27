@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class PDFViewerActivity extends Activity {
+public class PdfViewerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
