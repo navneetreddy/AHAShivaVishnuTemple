@@ -1,5 +1,8 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
@@ -10,7 +13,7 @@ import java.util.Date;
  *
  * @author Navneet Reddy
  */
-public class Event {
+public class Event implements Comparable<Event> {
 
     @SerializedName("Event Name")
     private String name;
@@ -35,7 +38,6 @@ public class Event {
 
     @SerializedName("PDF")
     private String pdfLink;
-
 
     /**
      * Constructor for an event.
@@ -132,19 +134,38 @@ public class Event {
         this.endTime = endTime;
     }
 
-
+    /**
+     * Gets the start date and time as a date object.
+     *
+     * @return The start date and time as a date object.
+     */
     public Date getStartDate() {
         return startDate;
     }
 
+    /**
+     * Sets the start date and time as a date object.
+     *
+     * @param startDate The start date and time as a date object.
+     */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
+    /**
+     * Gets the end date and time as a date object.
+     *
+     * @return The end date and time as a date object.
+     */
     public Date getEndDate() {
         return endDate;
     }
 
+    /**
+     * Sets the end date and time as a date object.
+     *
+     * @param endDate The end date and time as a date object.
+     */
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
@@ -219,5 +240,18 @@ public class Event {
      */
     public void setPdfLink(String pdfLink) {
         this.pdfLink = pdfLink;
+    }
+
+    @Override
+    public int compareTo(@NonNull Event anotherEvent) {
+        int returnCode = 0;
+
+        try {
+            returnCode = getStartDate().compareTo(anotherEvent.getStartDate());
+        } catch (NullPointerException e) {
+            Log.e("EVENT ERROR", "Null date object was passed to: " + getName());
+        }
+
+        return returnCode;
     }
 }

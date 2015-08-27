@@ -64,7 +64,7 @@ public class EventRVAdapter extends RecyclerView.Adapter<EventRVAdapter.EventVie
         if (events.get(i).isAllDay()) {
             evh.eventDateTime.setText("All Day Event on " + events.get(i).getDate());
         } else {
-            evh.eventDateTime.setText(events.get(i).getStartTime() + " " + events.get(i).getDate());
+            evh.eventDateTime.setText(events.get(i).getStartTime() + " on " + events.get(i).getDate());
         }
 
         evh.cv.setOnClickListener(new View.OnClickListener() {

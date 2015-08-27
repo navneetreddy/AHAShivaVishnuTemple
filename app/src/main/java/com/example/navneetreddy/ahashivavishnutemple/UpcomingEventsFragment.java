@@ -1,7 +1,13 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.provider.Settings;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +16,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.TimeZone;
 
 
@@ -30,24 +37,71 @@ public class UpcomingEventsFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        GetEventsAsyncTask task = new GetEventsAsyncTask();
+        boolean isConnectedToNetwork = checkNetworkConnection();
 
-        try {
-            Singleton.setEvents(task.execute().get());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (isConnectedToNetwork) {
+            GetEventsAsyncTask task = new GetEventsAsyncTask();
+
+            try {
+                Singleton.setEvents(task.execute().get());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            setEventDates();
+
+            /* Set up the recycler view */
+            RecyclerView rv = (RecyclerView) view.findViewById(R.id.upcomingEventsRV);
+            LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
+            rv.setHasFixedSize(true);
+            rv.setLayoutManager(llm);
+
+            EventRVAdapter adapter = new EventRVAdapter();
+            rv.setAdapter(adapter);
+        }
+    }
+
+    /**
+     * Checks if the app is connected to the network.
+     *
+     * @return true if and only if the app is connected to the network.
+     */
+    private boolean checkNetworkConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        /* Shows an alert dialog if the app is not connected to the network. */
+        if (connectivityManager.getActiveNetworkInfo() == null) {
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("No Internet Connection!")
+                    .setMessage("Retry or go to Network Settings.")
+                    .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            checkNetworkConnection();
+                        }
+                    })
+                    .setNegativeButton("Wifi Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                        }
+                    })
+                    .setNeutralButton("Network Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            startActivity(new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS));
+                        }
+                    })
+                    .setIcon(android.R.drawable.stat_sys_warning)
+                    .setCancelable(true)
+                    .show();
         }
 
-        setEventDates();
-
-        /* Set up the recycler view */
-        RecyclerView rv = (RecyclerView) view.findViewById(R.id.upcomingEventsRV);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(llm);
-
-        EventRVAdapter adapter = new EventRVAdapter();
-        rv.setAdapter(adapter);
+        return true;
     }
 
     /**
@@ -99,11 +153,15 @@ public class UpcomingEventsFragment extends Fragment {
             /* Remove the event if it has already happened,
             otherwise set the start and end dates. */
             if (startDateCalendar.before(Calendar.getInstance())) {
-                Singleton.getEvents().remove(event);
+                events.remove(event);
             } else {
                 event.setStartDate(startDateCalendar.getTime());
                 event.setEndDate(endDateCalendar.getTime());
             }
         }
+
+        /* Sorts the event by start date. */
+        Collections.sort(events);
+        Singleton.setEvents(events);
     }
 }

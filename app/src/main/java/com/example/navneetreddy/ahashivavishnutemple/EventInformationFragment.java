@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Environment;
 import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -112,7 +113,7 @@ public class EventInformationFragment extends Fragment {
         if (event.isAllDay()) {
             timeText.setText("All Day");
         } else {
-            timeText.setText(event.getStartTime());
+            timeText.setText(event.getStartTime() + " - " + event.getEndTime());
         }
 
         Picasso.with(getActivity())
@@ -195,6 +196,10 @@ public class EventInformationFragment extends Fragment {
             public void onClick(View v) {
 //                startActivity(new Intent(getActivity(), PdfViewerActivity.class));
 
+
+
+
+
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
                 startActivity(browserIntent);
@@ -210,6 +215,14 @@ public class EventInformationFragment extends Fragment {
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private String getFilePath() {      // TODO - make a PDF object.
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "AHA/" + "FILENAME";
+    }
+
+    private String getFileDirectory() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/AHA";
     }
 
     private String[] getCalendar() {
