@@ -194,7 +194,10 @@ public class EventInformationFragment extends Fragment {
         viewEventDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), PDFViewerActivity.class));
+                String pdfUrl = event.getPdfLink();
+                String pdfFileName = pdfUrl.substring(pdfUrl.lastIndexOf('/') + 1);
+
+                new PDFDownloadAsyncTask().execute(pdfUrl, pdfFileName);
             }
         });
 
