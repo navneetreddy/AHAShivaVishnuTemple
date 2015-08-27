@@ -48,8 +48,6 @@ public class PDFViewerActivity extends Activity {
             pdfFile = new File(folder, fileName);
 
             if (!pdfFile.exists()) {
-                Log.i("ENTERED", "PDF FILE DOESN'T EXIST");
-
                 try {
                     pdfFile.createNewFile();
                     PDFDownloader.downloadFile(fileUrl, pdfFile);
