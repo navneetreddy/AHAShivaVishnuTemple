@@ -194,15 +194,11 @@ public class EventInformationFragment extends Fragment {
         viewEventDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getActivity(), PdfViewerActivity.class));
+                startActivity(new Intent(getActivity(), PDFViewerActivity.class));
 
-
-
-
-
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
-                startActivity(browserIntent);
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
+//                startActivity(browserIntent);
             }
         });
 
@@ -215,14 +211,6 @@ public class EventInformationFragment extends Fragment {
                         Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    private String getFilePath() {      // TODO - make a PDF object.
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "AHA/" + "FILENAME";
-    }
-
-    private String getFileDirectory() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/AHA";
     }
 
     private String[] getCalendar() {
