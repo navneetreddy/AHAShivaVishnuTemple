@@ -3,7 +3,9 @@ package com.example.navneetreddy.ahashivavishnutemple;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -81,10 +83,15 @@ public class MainActivity extends Activity {
 
                 break;
 
-            case R.id.settings:
-                return true;
+            case R.id.action_report_bug:
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bug Report - AHA Android App");
 
-            case R.id.action_settings:
+                startActivity(Intent.createChooser(emailIntent, "Choose Mail Application"));
+
                 return true;
 
             default:
