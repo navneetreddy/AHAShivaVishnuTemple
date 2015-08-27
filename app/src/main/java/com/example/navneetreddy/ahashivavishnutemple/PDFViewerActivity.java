@@ -1,18 +1,19 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
 
 
-public class PDFViewerActivity extends AppCompatActivity {
+public class PDFViewerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class PDFViewerActivity extends AppCompatActivity {
         new DownloadFile().execute(pdfUrl, pdfFileName);
 
         // TODO - add progress bar while waiting for the file to download.
-        // TODO - check if the file already exists.
+        // TODO - go back to main activity when back button pressed.
     }
 
     private class DownloadFile extends AsyncTask<String, Void, Void> {
@@ -46,11 +47,15 @@ public class PDFViewerActivity extends AppCompatActivity {
 
             pdfFile = new File(folder, fileName);
 
-            try {
-                pdfFile.createNewFile();
-                PDFDownloader.downloadFile(fileUrl, pdfFile);
-            } catch (IOException e) {
-                e.printStackTrace();
+            if (!pdfFile.exists()) {
+                Log.i("ENTERED", "PDF FILE DOESN'T EXIST");
+
+                try {
+                    pdfFile.createNewFile();
+                    PDFDownloader.downloadFile(fileUrl, pdfFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
             return null;
@@ -67,8 +72,9 @@ public class PDFViewerActivity extends AppCompatActivity {
             try {
                 startActivity(pdfIntent);
             } catch (ActivityNotFoundException e) {
-                // TODO - go to play store page of Adobe Reader.
-                e.printStackTrace();
+                Intent adobePlayStoreIntent = new Intent(Intent.ACTION_VIEW);
+                adobePlayStoreIntent.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                startActivity(adobePlayStoreIntent);
             }
         }
     }
