@@ -9,12 +9,22 @@ import java.net.URL;
 
 
 /**
- * Created by NavneetReddy on 8/26/15.
+ * Downloads a PDF from an URL.
+ *
+ * @author NavneetReddy.
  */
 public class PDFDownloader {
 
     private static final int MEGABYTE = 1024 * 1024;
 
+    /**
+     * Downloads a file from the given URL and stores the file in the given file directory.
+     *
+     * @param fileUrl URL of the file to download.
+     * @param fileDirectory File path to the directory where the file needs to be stored.
+     * @throws IOException Exception occurring while reading the file from the URL
+     * or writing the file to the directory.
+     */
     public static void downloadFile(String fileUrl, File fileDirectory) throws IOException {
         FileOutputStream fileOutputStream = null;
 

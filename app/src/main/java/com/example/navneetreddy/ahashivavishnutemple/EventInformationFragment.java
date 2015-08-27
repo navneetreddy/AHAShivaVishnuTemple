@@ -195,10 +195,6 @@ public class EventInformationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), PDFViewerActivity.class));
-
-//                Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-//                        Uri.parse(Singleton.getEventToDisplay().getPdfLink()));
-//                startActivity(browserIntent);
             }
         });
 
