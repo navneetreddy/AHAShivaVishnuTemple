@@ -33,9 +33,6 @@ import com.squareup.picasso.Transformation;
  */
 public class AboutDeveloperFragment extends Fragment {
 
-    private static final int BLANCHARD_ALMOND =
-            Singleton.getContext().getResources().getColor(R.color.blanched_almond);
-
     private Transformation transformation;
 
     private Animator currentAnimator;
@@ -54,10 +51,6 @@ public class AboutDeveloperFragment extends Fragment {
     private ImageButton imageThumb;
     private ImageView expandedImage;
 
-    private TextView name;
-    private TextView degree;
-    private TextView school;
-    private TextView about;
     private TextView description;
 
     @Override
@@ -103,10 +96,6 @@ public class AboutDeveloperFragment extends Fragment {
         imageThumb = (ImageButton) view.findViewById(R.id.navneetPicture);
         expandedImage = (ImageView) view.findViewById(R.id.navneetExpandedImage);
 
-        name = (TextView) view.findViewById(R.id.navneetName);
-        degree = (TextView) view.findViewById(R.id.navneetDegree);
-        school = (TextView) view.findViewById(R.id.navneetSchool);
-        about = (TextView) view.findViewById(R.id.navneetAbout);
         description = (TextView) view.findViewById(R.id.navneetDescription);
 
         navneetImageID = R.drawable.navneet_picture_1;
@@ -140,7 +129,8 @@ public class AboutDeveloperFragment extends Fragment {
     }
 
     private void setDescription() {
-        String descriptionText = "";    // TODO
+        String descriptionText = "Navneet is currently a student at the University of Wisconsin " +
+                "- Madison, expected to gradute in December 2015. ";    // TODO
 
         description.setText(descriptionText);
     }
@@ -348,20 +338,14 @@ public class AboutDeveloperFragment extends Fragment {
         backgroundView.setAlpha(.7f);
         backgroundView.setBackgroundColor(Color.BLACK);
 
-        name.setTextColor(Color.DKGRAY);
-        name.setBackgroundColor(Color.TRANSPARENT);
+        int childViews = backgroundView.getChildCount();
 
-        emailButton.setAlpha(.5f);
-
-        about.setBackgroundColor(Color.TRANSPARENT);
-        description.setBackgroundColor(Color.TRANSPARENT);
-        degree.setBackgroundColor(Color.TRANSPARENT);
-        school.setBackgroundColor(Color.TRANSPARENT);
+        for (int i = 0; i < childViews; i++) {
+            backgroundView.getChildAt(i).setVisibility(View.GONE);
+        }
 
         expandedImage.setVisibility(View.VISIBLE);
         expandedImage.setAlpha(1f);
-
-        // TODO - hide buttons and layout views.
     }
 
     protected void endAnimation() {
@@ -369,15 +353,11 @@ public class AboutDeveloperFragment extends Fragment {
         backgroundView.setAlpha(1f);
         backgroundView.setBackgroundColor(Color.TRANSPARENT);
 
-        name.setTextColor(Color.BLACK);
-        name.setBackgroundColor(BLANCHARD_ALMOND);
+        int childViews = backgroundView.getChildCount();
 
-        emailButton.setAlpha(1f);
-
-        about.setBackgroundColor(BLANCHARD_ALMOND);
-        description.setBackgroundColor(BLANCHARD_ALMOND);
-        degree.setBackgroundColor(BLANCHARD_ALMOND);
-        school.setBackgroundColor(BLANCHARD_ALMOND);
+        for (int i = 0; i < childViews; i++) {
+            backgroundView.getChildAt(i).setVisibility(View.VISIBLE);
+        }
 
         expandedImage.setVisibility(View.GONE);
         currentAnimator = null;

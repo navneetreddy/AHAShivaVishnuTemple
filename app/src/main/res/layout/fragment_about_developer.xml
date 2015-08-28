@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/navneetFragmentFrameLayout"
     tools:context="com.example.navneetreddy.ahashivavishnutemple.AboutDeveloperFragment" >
 
     <LinearLayout
@@ -49,7 +48,6 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:id="@+id/navneetName"
                     android:text="@string/navneet_reddy"
                     android:textStyle="bold" />
 
@@ -59,7 +57,6 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/navneetDegree"
                     android:text="@string/degree"
                     android:textSize="@dimen/text_size_developer_page" />
 
@@ -70,7 +67,6 @@
                     android:paddingStart="5dp"
                     android:paddingEnd="5dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/navneetSchool"
                     android:text="@string/school"
                     android:textSize="@dimen/text_size_developer_page" />
 
@@ -91,13 +87,14 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="5dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/navneetAbout"
                 android:text="@string/about_navneet" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:id="@+id/navneetDescription" />
 
         </LinearLayout>
