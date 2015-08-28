@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <declare-styleable name="OutlineTextView">
+
         <attr name="typeface" format="string" />
 
         <attr name="strokeWidth" format="dimension" />
@@ -12,5 +14,7 @@
             <enum name="bevel" value="1" />
             <enum name="round" value="2" />
         </attr>
+
     </declare-styleable>
+
 </resources>

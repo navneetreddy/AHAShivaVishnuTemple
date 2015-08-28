@@ -1,5 +1,6 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -44,6 +45,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
+    @SuppressLint("InflateParams")
     public View getChildView(int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
@@ -86,6 +88,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
+    @SuppressLint("InflateParams")
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         String headerTitle = (String) getGroup(groupPosition);

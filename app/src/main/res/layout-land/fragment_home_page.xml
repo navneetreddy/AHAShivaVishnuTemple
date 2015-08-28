@@ -86,7 +86,8 @@
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:text="@string/about_us"
-                    android:id="@+id/aboutUsButton" />
+                    android:id="@+id/aboutUsButton"
+                    tools:ignore="ButtonStyle" />
 
                 <Button
                     android:layout_width="0dp"
@@ -97,7 +98,8 @@
                     android:padding="10dp"
                     android:layout_weight="1"
                     android:text="@string/contact_us"
-                    android:id="@+id/contactUsButton" />
+                    android:id="@+id/contactUsButton"
+                    tools:ignore="ButtonStyle" />
 
             </LinearLayout>
 
