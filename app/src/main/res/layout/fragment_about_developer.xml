@@ -112,7 +112,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/rounded_corners"
+                android:background="@drawable/rounded_corners_transparent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"
                 android:id="@+id/navneetEmailButton"
                 android:text="@string/email_navneet" />
 

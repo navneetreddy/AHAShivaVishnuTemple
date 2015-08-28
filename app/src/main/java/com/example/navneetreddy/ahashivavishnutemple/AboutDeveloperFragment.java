@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -15,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -46,7 +46,7 @@ public class AboutDeveloperFragment extends Fragment {
     private View rootView;
     private LinearLayout backgroundView;
 
-    private Button emailButton;
+    private View emailButton;
 
     private ImageButton linkedInButton;
     private ImageButton githubButton;
@@ -87,10 +87,15 @@ public class AboutDeveloperFragment extends Fragment {
         emailButton.setEnabled(true);
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onCreate(null);
+    }
+
     private void initializeFields(View view) {
         backgroundView = (LinearLayout) view.findViewById(R.id.navneetFragmentLinearLayout);
 
-        emailButton = (Button) view.findViewById(R.id.navneetEmailButton);
+        emailButton = view.findViewById(R.id.navneetEmailButton);
 
         linkedInButton = (ImageButton) view.findViewById(R.id.linkedinImageButton);
         githubButton = (ImageButton) view.findViewById(R.id.githubImageButton);
@@ -123,6 +128,15 @@ public class AboutDeveloperFragment extends Fragment {
         Picasso.with(getActivity())
                 .load(R.drawable.github_logo)
                 .into(githubButton);
+
+        /* Load the email icon only if the orientation of the device is in landscape. */
+        getActivity().getResources().getConfiguration();
+        if (getActivity().getResources().getConfiguration().orientation ==
+                Configuration.ORIENTATION_LANDSCAPE) {
+            Picasso.with(getActivity())
+                    .load(R.drawable.email_icon)
+                    .into((ImageButton) emailButton);
+        }
     }
 
     private void setDescription() {
@@ -132,7 +146,7 @@ public class AboutDeveloperFragment extends Fragment {
     }
 
     /**
-     * Handles the clickes on the LinkedIn, GitHub, and email buttons.
+     * Handles the clicks on the LinkedIn, GitHub, and email buttons.
      */
     private void buttonClickListeners() {
         linkedInButton.setOnClickListener(new View.OnClickListener() {
@@ -346,6 +360,8 @@ public class AboutDeveloperFragment extends Fragment {
 
         expandedImage.setVisibility(View.VISIBLE);
         expandedImage.setAlpha(1f);
+
+        // TODO - hide buttons and layout views.
     }
 
     protected void endAnimation() {

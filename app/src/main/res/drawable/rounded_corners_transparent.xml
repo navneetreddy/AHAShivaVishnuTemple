@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <solid
-        android:color="@color/blanched_almond" />
+        android:color="@color/transparent" />
+
+    <stroke
+        android:width="2dip"
+        android:color="@color/black" />
 
     <corners
         android:radius="10dip" />
