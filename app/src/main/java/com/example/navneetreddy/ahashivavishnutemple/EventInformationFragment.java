@@ -9,8 +9,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.Environment;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -128,7 +128,7 @@ public class EventInformationFragment extends Fragment {
                 .centerInside()
                 .into(emailButton);
 
-        try {   // TODO - is this getting the right account??
+        try {
             Intent intent = AccountPicker.newChooseAccountIntent(null, null,
                     new String[] {GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE},
                     false, null, null, null, null);
@@ -181,7 +181,7 @@ public class EventInformationFragment extends Fragment {
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");           // TODO - put last part in email body.
+                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("plain/text");
@@ -204,16 +204,12 @@ public class EventInformationFragment extends Fragment {
         addToGoogleCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                saveToGoogleCalendar();       // TODO
-
-                Toast.makeText(getActivity(), "This feature has not been implemented yet.",
-                        Toast.LENGTH_LONG).show();
+                saveToGoogleCalendar();
             }
         });
     }
 
     private String[] getCalendar() {
-        // TODO - does this work??
         Cursor cur;
         ContentResolver cr = getActivity().getContentResolver();
 
@@ -244,27 +240,26 @@ public class EventInformationFragment extends Fragment {
         return new String[] {String.valueOf(calID), displayName, accountName, ownerName};
     }
 
-    // TODO
     private void saveToGoogleCalendar() {
         Date startDate = event.getStartDate();
         Date endDate = event.getEndDate();
-//        String comments = comments_entry.getText().toString();
         String title = event.getName();
+        String location = "AHA Shiva Vishnu Temple\n" +
+                "2138 South Fish Hatchery Road, Fitchburg, WI 53575";
 
-        /**
-         * SAVE TO GOOGLE CALENDAR
-         */
         long calID = Long.parseLong(calendarInfo[PROJECTION_ID_INDEX]);
 
         ContentResolver cr = getActivity().getContentResolver();
         ContentValues values = new ContentValues();
 
+        Log.i("EVENT", event.getName());
+
         values.put(CalendarContract.Events.DTSTART, startDate.getTime());
         values.put(CalendarContract.Events.DTEND, endDate.getTime());
         values.put(CalendarContract.Events.TITLE, title);
-//        values.put(CalendarContract.Events.DESCRIPTION, comments);
+        values.put(CalendarContract.Events.EVENT_LOCATION, location);
         values.put(CalendarContract.Events.CALENDAR_ID, calID);
-        values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+        values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getTimeZone("America/Chicago").getID());
 
         Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
 

@@ -160,6 +160,7 @@ public class UpcomingEventsFragment extends Fragment {
             otherwise set the start and end dates. */
             if (startDateCalendar.before(Calendar.getInstance())) {
                 events.remove(event);
+                i--;
             } else {
                 event.setStartDate(startDateCalendar.getTime());
                 event.setEndDate(endDateCalendar.getTime());

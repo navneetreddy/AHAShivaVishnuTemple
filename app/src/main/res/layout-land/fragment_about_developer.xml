@@ -125,7 +125,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent" >
+                android:layout_height="fill_parent"
+                android:id="@+id/imageButtons" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
