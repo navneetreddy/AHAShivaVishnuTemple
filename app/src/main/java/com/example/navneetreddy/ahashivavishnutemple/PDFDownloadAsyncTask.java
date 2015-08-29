@@ -1,6 +1,8 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -56,12 +58,28 @@ public class PDFDownloadAsyncTask extends AsyncTask<String, Void, Void> {
 
         try {
             Singleton.getContext().startActivity(pdfIntent);
-        } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException ae1) {
             /* Directs the user to the play store to downloader Adobe Reader
             if no PDF viewing app was found. */
             Intent adobePlayStoreIntent = new Intent(Intent.ACTION_VIEW);
             adobePlayStoreIntent.setData(Uri.parse("market://details?id=com.adobe.reader"));
-            Singleton.getContext().startActivity(adobePlayStoreIntent);
+
+            try {
+                Singleton.getContext().startActivity(adobePlayStoreIntent);
+            } catch (ActivityNotFoundException ae2) {
+                new AlertDialog.Builder(Singleton.getContext())
+                        .setCancelable(true)
+                        .setIcon(android.R.drawable.stat_sys_warning)
+                        .setTitle("PDF viewing app not found!")
+                        .setMessage("Please download a PDF viewing app to view the event details.")
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+            }
         }
     }
 }

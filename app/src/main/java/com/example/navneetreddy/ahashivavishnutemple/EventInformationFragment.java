@@ -84,6 +84,18 @@ public class EventInformationFragment extends Fragment {
         setClickListeners();
     }
 
+    @Override
+    public void onResume() {
+        super.onCreate(null);
+
+        contactPhoneText.setEnabled(true);
+        contactEmailText.setEnabled(true);
+        callButton.setEnabled(true);
+        emailButton.setEnabled(true);
+        viewEventDetailsButton.setEnabled(true);
+        addToGoogleCalendarButton.setEnabled(true);
+    }
+
     /**
      * Initializes all the views in the fragment.
      *
@@ -160,6 +172,8 @@ public class EventInformationFragment extends Fragment {
         contactPhoneText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contactPhoneText.setEnabled(false);
+
                 Intent intent = new Intent(Intent.ACTION_DIAL,
                         Uri.parse("tel:" + event.getContactPhone()));
                 startActivity(intent);
@@ -169,6 +183,8 @@ public class EventInformationFragment extends Fragment {
         contactEmailText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contactEmailText.setEnabled(false);
+
                 String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -182,6 +198,8 @@ public class EventInformationFragment extends Fragment {
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                callButton.setEnabled(false);
+
                 Intent intent = new Intent(Intent.ACTION_DIAL,
                         Uri.parse("tel:" + event.getContactPhone()));
                 startActivity(intent);
@@ -191,6 +209,8 @@ public class EventInformationFragment extends Fragment {
         emailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                emailButton.setEnabled(false);
+
                 String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -214,7 +234,26 @@ public class EventInformationFragment extends Fragment {
         addToGoogleCalendarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveToGoogleCalendar();
+                addToGoogleCalendarButton.setEnabled(false);
+
+                try {
+                    saveToGoogleCalendar();
+                } catch (Exception e) {
+                    new AlertDialog.Builder(getActivity())
+                            .setCancelable(true)
+                            .setIcon(android.R.drawable.stat_sys_warning)
+                            .setTitle("Error while saving event to Google Calendar!")
+                            .setMessage("Please download Google Calendar and login before saving event.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+
+                    addToGoogleCalendarButton.setEnabled(true);
+                }
             }
         });
     }

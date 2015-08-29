@@ -40,13 +40,13 @@
             outline:strokeWidth="1dp" />
 
     </FrameLayout>
-    
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:gravity="center"
         android:padding="5dp"
-        android:text="@string/developer"/>
+        android:text="@string/developer" />
 
 </FrameLayout>
