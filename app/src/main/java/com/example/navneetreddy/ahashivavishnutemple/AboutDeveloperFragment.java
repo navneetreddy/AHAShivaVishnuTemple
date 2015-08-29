@@ -85,6 +85,11 @@ public class AboutDeveloperFragment extends Fragment {
         super.onCreate(null);
     }
 
+    /**
+     * Initializes all the child views and loads the images into the image views and image buttons.
+     *
+     * @param view Root view of the fragment.
+     */
     private void initializeFields(View view) {
         backgroundView = (LinearLayout) view.findViewById(R.id.navneetFragmentLinearLayout);
 
@@ -128,9 +133,13 @@ public class AboutDeveloperFragment extends Fragment {
         }
     }
 
+    /**
+     * Sets the description for the about Navneet section.
+     */
     private void setDescription() {
         String descriptionText = "Navneet is currently a student at the University of Wisconsin " +
-                "- Madison, expected to gradute in December 2015. ";    // TODO
+                "- Madison, expected to graduate in December 2015.\n\n" +
+                "";    // TODO
 
         description.setText(descriptionText);
     }
@@ -173,12 +182,20 @@ public class AboutDeveloperFragment extends Fragment {
         });
     }
 
+    /**
+     * Starts an intent to direct the user to the given url.
+     *
+     * @param url URL of the desired website to direct the user to.
+     */
     private void goToWebsite(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse(url));
         startActivity(intent);
     }
 
+    /**
+     * On click listener for the image thumbnail.
+     */
     private void imageThumbClickListener() {
         imageThumb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,12 +205,14 @@ public class AboutDeveloperFragment extends Fragment {
         });
     }
 
+    /**
+     * Expands the image thumbnail to full screen using a custom animation.
+     */
     private void zoomImageFromThumb() {
         animationDuration = Singleton.getContext()
                 .getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        // If there's an animation in progress,
-        // cancel it immediately and proceed with this one.
+        // If there's an animation in progress, cancel it immediately and proceed with this one.
         if (currentAnimator != null) {
             currentAnimator.cancel();
         }
@@ -210,20 +229,12 @@ public class AboutDeveloperFragment extends Fragment {
         final Rect finalBounds = new Rect();
         final Point globalOffset = new Point();
 
-        // The start bounds are the global visible rectangle of the thumbnail,
-        // and the final bounds are the global visible rectangle of the container
-        // view. Also set the container view's offset as the origin for the
-        // bounds, since that's the origin for the positioning animation properties (X, Y).
         imageThumb.getGlobalVisibleRect(startBounds);
         rootView.getGlobalVisibleRect(finalBounds, globalOffset);
 
         startBounds.offset(-globalOffset.x, -globalOffset.y);
         finalBounds.offset(-globalOffset.x, -globalOffset.y);
 
-        // Adjust the start bounds to be the same aspect ratio as the final
-        // bounds using the "center crop" technique. This prevents undesirable
-        // stretching during the animation. Also calculate the start scaling
-        // factor (the end scaling factor is always 1.0).
         float startScale;
 
         if ((float) finalBounds.width() / finalBounds.height()
@@ -333,6 +344,9 @@ public class AboutDeveloperFragment extends Fragment {
         });
     }
 
+    /**
+     * Dims the background and hides all the views in preparation of expanding the image.
+     */
     private void prepareVisibilitiesForAnimation() {
         imageThumb.setAlpha(0f);
         backgroundView.setAlpha(.7f);
@@ -348,6 +362,9 @@ public class AboutDeveloperFragment extends Fragment {
         expandedImage.setAlpha(1f);
     }
 
+    /**
+     * Restores the initial state of all the views.
+     */
     protected void endAnimation() {
         imageThumb.setAlpha(1f);
         backgroundView.setAlpha(1f);

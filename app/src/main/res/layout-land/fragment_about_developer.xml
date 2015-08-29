@@ -96,26 +96,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
+                android:scrollbars="vertical"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/rounded_corners" >
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/about_navneet" />
 
-                <TextView
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:paddingTop="5dp"
                     android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:scrollbars="vertical"
-                    android:id="@+id/navneetDescription" />
+                    android:paddingEnd="5dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/navneetDescription" />
+
+                </ScrollView>
 
             </LinearLayout>
 

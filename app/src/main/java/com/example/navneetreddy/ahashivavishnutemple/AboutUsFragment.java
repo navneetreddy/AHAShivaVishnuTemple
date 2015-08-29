@@ -84,9 +84,7 @@ public class AboutUsFragment extends Fragment {
 
         volunteer.add("AHA is a fully volunteer run organization. We welcome members of our " +
                 "community who are interested in volunteering for the various programs and " +
-                "services provided by AHA. If you are interested please fill in a " +
-                "<a href=\\\"http://aha-svtemple.org/about-us/volunteer-registration/\\\">" +
-                "Volunteer Registration Form</a>.");        // TODO - fix html to go to web page.
+                "services provided by AHA.");
 
         expandableListHeaderData.add("American Hindu Association");
         expandableListHeaderData.add("Our Vision");
