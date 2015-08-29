@@ -46,6 +46,11 @@ public class HomePageFragment extends Fragment {
         aboutDeveloperButton.setEnabled(true);
     }
 
+    /**
+     * Initializes all the views in the fragment.
+     *
+     * @param view Root view of the fragment.
+     */
     private void initializeFields(View view) {
         aboutUsButton = (Button) view.findViewById(R.id.aboutUsButton);
         contactUsButton = (Button) view.findViewById(R.id.contactUsButton);
@@ -54,6 +59,9 @@ public class HomePageFragment extends Fragment {
         aboutDeveloperButton = (Button) view.findViewById(R.id.aboutDeveloperButton);
     }
 
+    /**
+     * On click listeners for all the buttons on the fragment.
+     */
     private void setButtonOnClickListeners() {
         aboutUsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +99,12 @@ public class HomePageFragment extends Fragment {
         });
     }
 
+    /**
+     * Inflates and displays the given fragment.
+     *
+     * @param v Button that the user had clicked.
+     * @param fragment Fragment that will to be displayed.
+     */
     private void goToFragment(View v, Fragment fragment) {
         v.setEnabled(false);
 

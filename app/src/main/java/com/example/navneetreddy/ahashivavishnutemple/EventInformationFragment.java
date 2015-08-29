@@ -2,8 +2,10 @@ package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -16,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
@@ -33,9 +34,7 @@ import java.util.TimeZone;
  */
 public class EventInformationFragment extends Fragment {
 
-    /**
-     * Public fields required for Google Calendar
-     */
+    /* Public fields required for Google Calendar. */
     public static final String[] EVENT_PROJECTION = new String[] {
             CalendarContract.Calendars._ID,                           // 0
             CalendarContract.Calendars.ACCOUNT_NAME,                  // 1
@@ -43,7 +42,7 @@ public class EventInformationFragment extends Fragment {
             CalendarContract.Calendars.OWNER_ACCOUNT                  // 3
     };
 
-    // The indices for the projection array above.
+    /* The indices for the projection array above. */
     private static final int PROJECTION_ID_INDEX = 0;
     private static final int PROJECTION_ACCOUNT_NAME_INDEX = 1;
     private static final int PROJECTION_DISPLAY_NAME_INDEX = 2;
@@ -85,6 +84,11 @@ public class EventInformationFragment extends Fragment {
         setClickListeners();
     }
 
+    /**
+     * Initializes all the views in the fragment.
+     *
+     * @param view Root view of the fragment.
+     */
     private void initializeFields(View view) {
         event = Singleton.getEventToDisplay();
 
@@ -102,6 +106,9 @@ public class EventInformationFragment extends Fragment {
         addToGoogleCalendarButton = (Button) view.findViewById(R.id.addToGoogleCalendarButton);
     }
 
+    /**
+     * Sets the text for all the text views and loads images into the image buttons.
+     */
     private void setFields() {
         eventTitleText.setText(event.getName());
         dateText.setText(event.getDate());
@@ -127,6 +134,7 @@ public class EventInformationFragment extends Fragment {
                 .centerInside()
                 .into(emailButton);
 
+        /* Gets the email address of the user. */
         try {
             Intent intent = AccountPicker.newChooseAccountIntent(null, null,
                     new String[] {GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE},
@@ -145,6 +153,9 @@ public class EventInformationFragment extends Fragment {
         }
     }
 
+    /**
+     * On click listeners for all the buttons on the fragment.
+     */
     private void setClickListeners() {
         contactPhoneText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,6 +219,11 @@ public class EventInformationFragment extends Fragment {
         });
     }
 
+    /**
+     * Retrieves the calendar information of the user's Google Calendar.
+     *
+     * @return String array containing the calendar information.
+     */
     private String[] getCalendar() {
         Cursor cur;
         ContentResolver cr = getActivity().getContentResolver();
@@ -239,6 +255,9 @@ public class EventInformationFragment extends Fragment {
         return new String[] {String.valueOf(calID), displayName, accountName, ownerName};
     }
 
+    /**
+     * Saves the event information to the user's Google Calendar.
+     */
     private void saveToGoogleCalendar() {
         Date startDate = event.getStartDate();
         Date endDate = event.getEndDate();
@@ -263,11 +282,36 @@ public class EventInformationFragment extends Fragment {
         long eventID = Long.parseLong(uri.getLastPathSegment());
 
         if(eventID != -1) {
-            Toast.makeText(getActivity(), "Appointment saved to Google Calendar",
-                    Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(getActivity())
+                    .setCancelable(true)
+                    .setTitle("Google Calendar")
+                    .setMessage("This event had been successfully saved to your Google Calendar.")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
         } else {
-            Toast.makeText(getActivity(), "Appointment not saved to Google Calendar",
-                    Toast.LENGTH_SHORT).show();
+            new AlertDialog.Builder(getActivity())
+                    .setCancelable(true)
+                    .setIcon(android.R.drawable.stat_sys_warning)
+                    .setTitle("Google Calendar Error")
+                    .setMessage("An error occurred while saving this event to your Google Calendar.")
+                    .setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            saveToGoogleCalendar();
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
         }
     }
 }
