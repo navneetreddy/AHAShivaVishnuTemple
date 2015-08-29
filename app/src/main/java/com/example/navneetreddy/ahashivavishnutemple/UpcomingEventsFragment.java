@@ -158,7 +158,7 @@ public class UpcomingEventsFragment extends Fragment {
 
             /* Remove the event if it has already happened,
             otherwise set the start and end dates. */
-            if (startDateCalendar.before(Calendar.getInstance())) {
+            if (endDateCalendar.before(Calendar.getInstance())) {
                 events.remove(event);
                 i--;
             } else {
