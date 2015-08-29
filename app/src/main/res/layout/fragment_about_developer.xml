@@ -74,82 +74,89 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:scrollbars="vertical"
-            android:padding="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_corners" >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/about_navneet" />
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp" >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/navneetDescription" />
-
-            </ScrollView>
-
-        </LinearLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageButtons" >
+            android:layout_height="match_parent">
 
-            <Button
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_height="125dp"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/rounded_corners_transparent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
-                android:id="@+id/navneetEmailButton"
-                android:text="@string/email_navneet" />
+                android:id="@+id/imageButtons" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/rounded_corners_transparent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textStyle="bold"
+                    android:id="@+id/navneetEmailButton"
+                    android:text="@string/email_navneet" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_above="@+id/navneetEmailButton"
+                    android:weightSum="2" >
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:scaleType="fitEnd"
+                        android:background="@color/transparent"
+                        android:id="@+id/linkedinImageButton"
+                        android:contentDescription="@string/linkedin_button" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:scaleType="fitEnd"
+                        android:background="@color/transparent"
+                        android:id="@+id/githubImageButton"
+                        android:contentDescription="@string/github_button" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_above="@+id/navneetEmailButton"
-                android:weightSum="2" >
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_above="@+id/imageButtons"
+                android:background="@drawable/rounded_corners" >
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:scaleType="fitEnd"
-                    android:background="@color/transparent"
-                    android:id="@+id/linkedinImageButton"
-                    android:contentDescription="@string/linkedin_button" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/about_navneet" />
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="5dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:scaleType="fitEnd"
-                    android:background="@color/transparent"
-                    android:id="@+id/githubImageButton"
-                    android:contentDescription="@string/github_button" />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/navneetDescription" />
+
+                </ScrollView>
 
             </LinearLayout>
 

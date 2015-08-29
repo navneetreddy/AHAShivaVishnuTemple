@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.provider.CalendarContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -251,8 +250,6 @@ public class EventInformationFragment extends Fragment {
 
         ContentResolver cr = getActivity().getContentResolver();
         ContentValues values = new ContentValues();
-
-        Log.i("EVENT", event.getName());
 
         values.put(CalendarContract.Events.DTSTART, startDate.getTime());
         values.put(CalendarContract.Events.DTEND, endDate.getTime());

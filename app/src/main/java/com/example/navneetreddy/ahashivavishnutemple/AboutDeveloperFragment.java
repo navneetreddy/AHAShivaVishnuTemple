@@ -139,12 +139,12 @@ public class AboutDeveloperFragment extends Fragment {
     private void setDescription() {
         String descriptionText = "Navneet is currently a student at the University of Wisconsin " +
                 "- Madison, expected to graduate in December 2015.\n\n" +
-                "" +        // TODO
                 "Outside of developing software, Navneet enjoys refereeing soccer, watching " +
-                "sports and \n\n" +
+                "sports and travelling.\n\n" +
                 "Navneet's favorite sports teams include: Wisconsin Badgers, Green Bay Packers, " +
-                "Milwaukee Brewers, Milwaukee Bucks, and Stewart-Haas Racing." +
-                "";
+                "Milwaukee Brewers, Milwaukee Bucks, and Stewart-Haas Racing.\n\n" +
+                "The code for this app is hosted on Navneet's GitHub profile under the " +
+                "repository name \"AHAShivaVishnuTemple\"";
 
         description.setText(descriptionText);
     }

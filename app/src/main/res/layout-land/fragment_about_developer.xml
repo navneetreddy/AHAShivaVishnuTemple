@@ -84,13 +84,62 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="7"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/imageButtons" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentBottom="true"
+                    android:weightSum="3"
+                    tools:ignore="UselessParent" >
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitEnd"
+                        android:background="@color/transparent"
+                        android:id="@+id/linkedinImageButton"
+                        android:contentDescription="@string/linkedin_button" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:clickable="true"
+                        android:layout_weight="1"
+                        android:scaleType="fitEnd"
+                        android:background="@color/transparent"
+                        android:id="@+id/navneetEmailButton"
+                        android:contentDescription="@string/email_button"/>
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:scaleType="fitEnd"
+                        android:background="@color/transparent"
+                        android:id="@+id/githubImageButton"
+                        android:contentDescription="@string/github_button" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -99,6 +148,7 @@
                 android:scrollbars="vertical"
                 android:padding="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_above="@+id/imageButtons"
                 android:background="@drawable/rounded_corners" >
 
                 <TextView
@@ -123,55 +173,7 @@
 
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/imageButtons" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_alignParentBottom="true"
-                    android:weightSum="3"
-                    tools:ignore="UselessParent" >
-
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="75dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitEnd"
-                        android:background="@color/transparent"
-                        android:id="@+id/linkedinImageButton"
-                        android:contentDescription="@string/linkedin_button" />
-
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="75dp"
-                        android:clickable="true"
-                        android:layout_weight="1"
-                        android:scaleType="fitEnd"
-                        android:background="@color/transparent"
-                        android:id="@+id/navneetEmailButton"
-                        android:contentDescription="@string/email_button"/>
-
-                    <ImageButton
-                        android:layout_width="0dp"
-                        android:layout_height="75dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="1"
-                        android:clickable="true"
-                        android:scaleType="fitEnd"
-                        android:background="@color/transparent"
-                        android:id="@+id/githubImageButton"
-                        android:contentDescription="@string/github_button" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
