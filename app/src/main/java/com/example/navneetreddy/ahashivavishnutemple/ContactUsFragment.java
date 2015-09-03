@@ -114,10 +114,36 @@ public class ContactUsFragment extends Fragment {
             public void onClick(View v) {
                 emailButton.setEnabled(false);
 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("plain/text");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"contact.aha@aha-svtemple.org"});
-                startActivity(intent);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"contact.aha@aha-svtemple.org"});
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.gm"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("No Email Client Found!")
+                                .setMessage("Please download an email client to send email.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        emailButton.setEnabled(true);
+                    }
+                }
             }
         });
 
