@@ -24,6 +24,7 @@ public class ContactUsFragment extends Fragment {
     private Button callButton;
     private Button emailButton;
     private Button websiteButton;
+    private Button aboutDeveloperButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +40,7 @@ public class ContactUsFragment extends Fragment {
         callButton = (Button) view.findViewById(R.id.phoneButton);
         emailButton = (Button) view.findViewById(R.id.emailButton);
         websiteButton = (Button) view.findViewById(R.id.websiteButton);
+        aboutDeveloperButton = (Button) view.findViewById(R.id.aboutDeveloperButton);
 
         setOnClickListeners();
     }
@@ -51,6 +53,7 @@ public class ContactUsFragment extends Fragment {
         callButton.setEnabled(true);
         emailButton.setEnabled(true);
         websiteButton.setEnabled(true);
+        aboutDeveloperButton.setEnabled(true);
     }
 
     /**
@@ -105,7 +108,25 @@ public class ContactUsFragment extends Fragment {
                 callButton.setEnabled(false);
 
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:6082348634"));
-                startActivity(intent);
+
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException ae) {
+                    new AlertDialog.Builder(Singleton.getContext())
+                            .setCancelable(true)
+                            .setIcon(android.R.drawable.stat_sys_warning)
+                            .setTitle("Cannot Make Call!")
+                            .setMessage("The call could not be made from this device.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+
+                    callButton.setEnabled(true);
+                }
             }
         });
 
@@ -156,6 +177,18 @@ public class ContactUsFragment extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(url));
                 startActivity(intent);
+            }
+        });
+
+        aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                aboutDeveloperButton.setEnabled(false);
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new AboutDeveloperFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

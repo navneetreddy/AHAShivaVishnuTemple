@@ -121,6 +121,19 @@
                 android:text="@string/visit_website"
                 android:id="@+id/websiteButton" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corners"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="Meet the App Developer"
+                android:id="@+id/aboutDeveloperButton" />
+
         </LinearLayout>
 
     </ScrollView>
