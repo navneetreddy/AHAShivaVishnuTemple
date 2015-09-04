@@ -3,6 +3,7 @@ package com.example.navneetreddy.ahashivavishnutemple;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -59,6 +60,7 @@ public class EventInformationFragment extends Fragment {
     private OutlineTextView eventTitleText;
     private TextView dateText;
     private TextView timeText;
+    private TextView locationText;
     private TextView contactNameText;
     private TextView contactPhoneText;
     private TextView contactEmailText;
@@ -88,6 +90,7 @@ public class EventInformationFragment extends Fragment {
     public void onResume() {
         super.onCreate(null);
 
+        locationText.setEnabled(true);
         contactPhoneText.setEnabled(true);
         contactEmailText.setEnabled(true);
         callButton.setEnabled(true);
@@ -107,6 +110,7 @@ public class EventInformationFragment extends Fragment {
         eventTitleText = (OutlineTextView) view.findViewById(R.id.eventTitle);
         dateText = (TextView) view.findViewById(R.id.eventDate);
         timeText = (TextView) view.findViewById(R.id.eventTime);
+        locationText = (TextView) view.findViewById(R.id.eventLocation);
         contactNameText = (TextView) view.findViewById(R.id.eventContactName);
         contactPhoneText = (TextView) view.findViewById(R.id.eventContactPhone);
         contactEmailText = (TextView) view.findViewById(R.id.eventContactEmail);
@@ -124,6 +128,7 @@ public class EventInformationFragment extends Fragment {
     private void setFields() {
         eventTitleText.setText(event.getName());
         dateText.setText(event.getDate());
+        locationText.setText(event.getLocation());
         contactNameText.setText(event.getContactName());
         contactPhoneText.setText(event.getContactPhone());
         contactEmailText.setText(event.getContactEmail());
@@ -169,6 +174,46 @@ public class EventInformationFragment extends Fragment {
      * On click listeners for all the buttons on the fragment.
      */
     private void setClickListeners() {
+        locationText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                locationText.setEnabled(false);
+
+                Uri gmmIntentUri = Uri.parse("google.navigation:q=2138+South+Fish+Hatchery+Road," +
+                        "+Fitchburg,+WI+53575");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+
+                try {
+                    startActivity(mapIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.apps.maps"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("Google Maps not found!")
+                                .setMessage("Please download Google Maps " +
+                                        "to view directions to the temple.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        locationText.setEnabled(true);
+                    }
+                }
+            }
+        });
+
         contactPhoneText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

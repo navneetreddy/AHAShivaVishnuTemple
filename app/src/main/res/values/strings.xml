@@ -63,4 +63,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="report_a_bug">Report a Bug</string>
     <string name="email_button">Email Button</string>
+    <string name="location">Location:</string>
+    <string name="event_location_button">Event Location Button</string>
 </resources>

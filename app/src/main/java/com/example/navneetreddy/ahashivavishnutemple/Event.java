@@ -17,6 +17,8 @@ public class Event implements Comparable<Event> {
 
     @SerializedName("Event Name")
     private String name;
+    @SerializedName("Event Location")
+    private String location;
     @SerializedName("Event Date")
     private String date;
     @SerializedName("All Day")
@@ -60,6 +62,24 @@ public class Event implements Comparable<Event> {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Gets the location of the event.
+     *
+     * @return The location of the event.
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * Sets the location of the event.
+     *
+     * @param location The location of the event.
+     */
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     /**

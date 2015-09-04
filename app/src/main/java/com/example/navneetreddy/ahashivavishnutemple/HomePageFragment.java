@@ -19,7 +19,6 @@ public class HomePageFragment extends Fragment {
     private Button contactUsButton;
     private Button upcomingEventsButton;
     private Button makeADonationButton;
-//    private Button aboutDeveloperButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +42,6 @@ public class HomePageFragment extends Fragment {
         contactUsButton.setEnabled(true);
         upcomingEventsButton.setEnabled(true);
         makeADonationButton.setEnabled(true);
-//        aboutDeveloperButton.setEnabled(true);
     }
 
     /**
@@ -56,7 +54,6 @@ public class HomePageFragment extends Fragment {
         contactUsButton = (Button) view.findViewById(R.id.contactUsButton);
         upcomingEventsButton = (Button) view.findViewById(R.id.upcomingEventsButton);
         makeADonationButton = (Button) view.findViewById(R.id.makeADonationButton);
-//        aboutDeveloperButton = (Button) view.findViewById(R.id.aboutDeveloperButton);
     }
 
     /**
@@ -90,13 +87,6 @@ public class HomePageFragment extends Fragment {
                 goToFragment(v, new MakeADonationFragment());
             }
         });
-
-//        aboutDeveloperButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToFragment(v, new AboutDeveloperFragment());
-//            }
-//        });
     }
 
     /**
