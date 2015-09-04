@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:text="@string/make_a_donation"
         android:id="@+id/donationTitle"
-        outline:strokeColor="@color/white"
+        outline:strokeColor="@color/blanched_almond"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 

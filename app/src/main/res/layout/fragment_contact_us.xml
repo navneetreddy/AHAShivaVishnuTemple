@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:text="@string/contact_us"
         android:id="@+id/contactUsTitle"
-        outline:strokeColor="@color/white"
+        outline:strokeColor="@color/blanched_almond"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 

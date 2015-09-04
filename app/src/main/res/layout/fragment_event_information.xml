@@ -19,7 +19,7 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:id="@+id/eventTitle"
-        outline:strokeColor="@color/white"
+        outline:strokeColor="@color/blanched_almond"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 

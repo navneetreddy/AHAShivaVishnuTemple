@@ -35,7 +35,7 @@
             android:textColor="@color/black"
             android:textSize="50sp"
             android:textStyle="bold"
-            outline:strokeColor="@color/white"
+            outline:strokeColor="@color/blanched_almond"
             outline:strokeJoinStyle="miter"
             outline:strokeWidth="1dp" />
 

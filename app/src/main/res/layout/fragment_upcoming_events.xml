@@ -18,7 +18,7 @@
         android:textSize="35sp"
         android:textStyle="bold"
         android:text="@string/upcoming_events"
-        outline:strokeColor="#ffffff"
+        outline:strokeColor="@color/blanched_almond"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 
