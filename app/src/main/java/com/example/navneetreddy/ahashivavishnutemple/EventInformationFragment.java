@@ -236,7 +236,7 @@ public class EventInformationFragment extends Fragment {
                 intent.setType("plain/text");
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
                 intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
-                startActivity(Intent.createChooser(intent, "Send Email"));
+                startActivity(intent);
             }
         });
 
@@ -262,7 +262,7 @@ public class EventInformationFragment extends Fragment {
                 intent.setType("plain/text");
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
                 intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
-                startActivity(Intent.createChooser(intent, "Send Email"));
+                startActivity(intent);
             }
         });
 
@@ -272,7 +272,23 @@ public class EventInformationFragment extends Fragment {
                 String pdfUrl = event.getPdfLink();
                 String pdfFileName = pdfUrl.substring(pdfUrl.lastIndexOf('/') + 1);
 
-                new PDFDownloadAsyncTask().execute(pdfUrl, pdfFileName);
+                if (!pdfUrl.isEmpty()) {
+                    new PDFDownloadAsyncTask().execute(pdfUrl, pdfFileName);
+                } else {
+                    new AlertDialog.Builder(getActivity())
+                            .setCancelable(true)
+                            .setIcon(android.R.drawable.stat_sys_warning)
+                            .setTitle("No More Information Available At This Time!")
+                            .setMessage("Please check back later for more information " +
+                                    "on this event.")
+                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
+                }
             }
         });
 
@@ -346,8 +362,7 @@ public class EventInformationFragment extends Fragment {
         Date startDate = event.getStartDate();
         Date endDate = event.getEndDate();
         String title = event.getName();
-        String location = "AHA Shiva Vishnu Temple\n" +
-                "2138 South Fish Hatchery Road, Fitchburg, WI 53575";
+        String location = event.getLocation();
 
         long calID = Long.parseLong(calendarInfo[PROJECTION_ID_INDEX]);
 
@@ -397,5 +412,7 @@ public class EventInformationFragment extends Fragment {
                     })
                     .show();
         }
+
+        addToGoogleCalendarButton.setEnabled(true);
     }
 }

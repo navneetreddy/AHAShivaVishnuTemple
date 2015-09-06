@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bug Report - AHA Android App");
 
-                startActivity(Intent.createChooser(emailIntent, "Choose Mail Application"));
+                startActivity(emailIntent);
 
                 return true;
 

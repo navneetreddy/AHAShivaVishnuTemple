@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">AHA Shiva Vishnu Temple</string>
 
-    <string name="action_settings">Settings</string>
-
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="om_image">Om Image</string>
 
     <string-array name="drawer_items">
@@ -17,9 +14,6 @@
 
     <string name="about_us">About Us</string>
     <string name="aha_title">American Hindu Association</string>
-    <string name="our_vision">Our Vision</string>
-    <string name="our_mission">Our Mission</string>
-    <string name="volunteering">Volunteering at AHA</string>
 
     <string name="contact_us">Contact Us</string>
     <string name="temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center of Wisconsin]]></string>
@@ -39,14 +33,11 @@
     <string name="contact_email">Contact Email:</string>
     <string name="add_event_to_google_calendar">Add Event to Google Calendar</string>
     <string name="view_event_details">View Event Details</string>
-    <string name="title_activity_pdf_viewer">PdfViewerActivity</string>
     <string name="welcome">Welcome!</string>
     <string name="developer">Developed by Navneet Shivam Reddy</string>
     <string name="make_a_donation">Make a Donation</string>
     <string name="navneet_reddy">Navneet Reddy</string>
     <string name="email_navneet">Email Navneet</string>
-    <string name="linkedin_navneet">linkedin.com/in/navneetreddy</string>
-    <string name="github_navneet">github.com/navneetreddy</string>
     <string name="navneet_picture">Navneet\'s Picture</string>
     <string name="about_navneet">About Navneet</string>
     <string name="expanded_image">Expanded Image</string>
@@ -58,7 +49,6 @@
     <string name="about_the_developer">About the Developer</string>
     <string name="linkedin_button">LinkedIn Button</string>
     <string name="github_button">GitHub Button</string>
-    <string name="title_activity_pdfviewer">PDFViewerActivity</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="report_a_bug">Report a Bug</string>

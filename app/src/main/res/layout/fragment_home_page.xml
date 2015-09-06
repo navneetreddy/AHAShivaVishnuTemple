@@ -14,7 +14,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:paddingTop="20dp"
-        android:paddingBottom="0dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/black"
         android:textSize="35sp"
@@ -59,7 +58,7 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:text="Shiva Vishnu Temple"
-        outline:strokeColor="@color/blanched_almond"
+        outline:strokeColor="@color/red"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
 

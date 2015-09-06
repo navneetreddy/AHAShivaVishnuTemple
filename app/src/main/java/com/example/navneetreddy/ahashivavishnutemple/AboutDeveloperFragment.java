@@ -182,7 +182,7 @@ public class AboutDeveloperFragment extends Fragment {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Message from AHA Android App");
 
-                startActivity(Intent.createChooser(emailIntent, "Choose Mail Application"));
+                startActivity(emailIntent);
             }
         });
     }
