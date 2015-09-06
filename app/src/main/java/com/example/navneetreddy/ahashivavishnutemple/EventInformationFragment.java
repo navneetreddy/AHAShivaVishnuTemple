@@ -230,12 +230,10 @@ public class EventInformationFragment extends Fragment {
             public void onClick(View v) {
                 contactEmailText.setEnabled(false);
 
-                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
-
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("plain/text");
                 intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
-                intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+                intent.putExtra(Intent.EXTRA_SUBJECT, event.getName());
                 startActivity(intent);
             }
         });
@@ -256,13 +254,11 @@ public class EventInformationFragment extends Fragment {
             public void onClick(View v) {
                 emailButton.setEnabled(false);
 
-                String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
-
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.setType("plain/text");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, event.getName());
 
                 try {
                     startActivity(emailIntent);

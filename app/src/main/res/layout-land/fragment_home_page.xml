@@ -4,11 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:baselineAligned="false"
+    android:orientation="vertical"
     android:padding="10dp"
-    android:weightSum="2"
     tools:context="com.example.navneetreddy.ahashivavishnutemple.HomePageFragment" >
+
+    <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:text="@string/hindu_temple_cultural_center"
+        outline:strokeColor="@color/red"
+        outline:strokeJoinStyle="miter"
+        outline:strokeWidth="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="2">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -16,43 +35,26 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_weight="1" >
-
-        <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="10dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            android:text="@string/welcome"
-            android:id="@+id/homePageWelcome"
-            outline:strokeColor="@color/white"
-            outline:strokeJoinStyle="miter"
-            outline:strokeWidth="1dp" />
-
         <ImageView
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"
-            android:src="@drawable/om_symbol_1"
+            android:src="@drawable/aha_logo"
             android:contentDescription="@string/om_image" />
 
         <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
-            android:id="@+id/splashTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:padding="10dp"
+            android:paddingBottom="15dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
-            android:text="@string/app_name"
-            outline:strokeColor="@color/white"
+            android:text="@string/shiva_vishnu_temple"
+            outline:strokeColor="@color/red"
             outline:strokeJoinStyle="miter"
             outline:strokeWidth="1dp" />
 
@@ -70,6 +72,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corners"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="@string/upcoming_events"
+                android:id="@+id/upcomingEventsButton" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corners"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                android:text="@string/make_a_donation"
+                android:id="@+id/makeADonationButton" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,37 +126,10 @@
 
             </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/upcoming_events"
-                android:id="@+id/upcomingEventsButton" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/make_a_donation"
-                android:id="@+id/makeADonationButton" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:padding="10dp"
-                android:text="@string/about_the_developer"
-                android:id="@+id/aboutDeveloperButton" />
-
         </LinearLayout>
 
     </ScrollView>
+
+    </LinearLayout>
 
 </LinearLayout>

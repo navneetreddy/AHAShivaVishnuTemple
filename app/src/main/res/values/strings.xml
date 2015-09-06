@@ -5,11 +5,10 @@
 
     <string-array name="drawer_items">
         <item>Home</item>
-        <item>About Us</item>
         <item>Upcoming Events</item>
         <item>Make A Donation</item>
+        <item>About Us</item>
         <item>Contact Us</item>
-        <item>Developer</item>
     </string-array>
 
     <string name="about_us">About Us</string>
@@ -50,9 +49,10 @@
     <string name="linkedin_button">LinkedIn Button</string>
     <string name="github_button">GitHub Button</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="report_a_bug">Report a Bug</string>
     <string name="email_button">Email Button</string>
     <string name="location">Location:</string>
-    <string name="event_location_button">Event Location Button</string>
+    <string name="meet_the_developer">Meet the App Developer</string>
+    <string name="hindu_temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center]]></string>
+    <string name="shiva_vishnu_temple">Shiva Vishnu Temple</string>
 </resources>

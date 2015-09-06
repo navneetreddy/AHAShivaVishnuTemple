@@ -18,26 +18,10 @@
         android:textColor="@color/black"
         android:textSize="35sp"
         android:textStyle="bold"
-        android:text="Hindu Temple &amp; Cultural Center"
+        android:text="@string/hindu_temple_cultural_center"
         outline:strokeColor="@color/red"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />
-
-    <!--<com.example.navneetreddy.ahashivavishnutemple.OutlineTextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:gravity="center"-->
-        <!--android:paddingTop="10dp"-->
-        <!--android:paddingBottom="10dp"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:textColor="@color/black"-->
-        <!--android:textSize="25sp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:text="American Hindu Association"-->
-        <!--outline:strokeColor="@color/blanched_almond"-->
-        <!--outline:strokeJoinStyle="miter"-->
-        <!--outline:strokeWidth="2px" />-->
 
     <ImageView
         android:layout_width="150dp"
@@ -57,7 +41,7 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:text="Shiva Vishnu Temple"
+        android:text="@string/shiva_vishnu_temple"
         outline:strokeColor="@color/red"
         outline:strokeJoinStyle="miter"
         outline:strokeWidth="1dp" />

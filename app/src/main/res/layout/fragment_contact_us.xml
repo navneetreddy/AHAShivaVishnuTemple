@@ -131,7 +131,7 @@
                 android:layout_marginBottom="10dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="Meet the App Developer"
+                android:text="@string/meet_the_developer"
                 android:id="@+id/aboutDeveloperButton" />
 
         </LinearLayout>

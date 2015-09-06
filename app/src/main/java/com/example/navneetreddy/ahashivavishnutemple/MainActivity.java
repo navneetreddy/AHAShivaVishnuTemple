@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -179,11 +180,10 @@ public class MainActivity extends Activity {
                 }
 
                 final int HOME = 0;
-                final int ABOUT_US = 1;
-                final int UPCOMING_EVENTS = 2;
-                final int MAKE_A_DONATION = 3;
+                final int UPCOMING_EVENTS = 1;
+                final int MAKE_A_DONATION = 2;
+                final int ABOUT_US = 3;
                 final int CONTACT_US = 4;
-                final int DEVELOPER = 5;
 
                 switch (position) {
                     case HOME:
@@ -204,10 +204,6 @@ public class MainActivity extends Activity {
 
                     case CONTACT_US:
                         replaceFragment(new ContactUsFragment());
-                        break;
-
-                    case DEVELOPER:
-                        replaceFragment(new AboutDeveloperFragment());
                         break;
 
                     default:
