@@ -29,106 +29,106 @@
         android:baselineAligned="false"
         android:weightSum="2">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_weight="1" >
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
-            android:src="@drawable/aha_logo"
-            android:contentDescription="@string/om_image" />
-
-        <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingBottom="15dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:text="@string/shiva_vishnu_temple"
-            outline:strokeColor="@color/red"
-            outline:strokeJoinStyle="miter"
-            outline:strokeWidth="1dp" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="1"
-        android:layout_gravity="center" >
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1" >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/aha_logo"
+                android:contentDescription="@string/om_image" />
+
+            <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:text="@string/shiva_vishnu_temple"
+                outline:strokeColor="@color/red"
+                outline:strokeJoinStyle="miter"
+                outline:strokeWidth="1dp" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/upcoming_events"
-                android:id="@+id/upcomingEventsButton" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/rounded_corners"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                android:text="@string/make_a_donation"
-                android:id="@+id/makeADonationButton" />
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:layout_gravity="center" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:weightSum="2" >
+                android:orientation="vertical" >
 
                 <Button
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/rounded_corners"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
                     android:padding="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/about_us"
-                    android:id="@+id/aboutUsButton"
-                    tools:ignore="ButtonStyle" />
+                    android:text="@string/upcoming_events"
+                    android:id="@+id/upcomingEventsButton" />
 
                 <Button
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/rounded_corners"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="10dp"
                     android:padding="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/contact_us"
-                    android:id="@+id/contactUsButton"
-                    tools:ignore="ButtonStyle" />
+                    android:text="@string/make_a_donation"
+                    android:id="@+id/makeADonationButton" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:weightSum="2" >
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/rounded_corners"
+                        android:layout_marginEnd="5dp"
+                        android:padding="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/about_us"
+                        android:id="@+id/aboutUsButton"
+                        tools:ignore="ButtonStyle" />
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/rounded_corners"
+                        android:layout_marginStart="5dp"
+                        android:padding="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/contact_us"
+                        android:id="@+id/contactUsButton"
+                        tools:ignore="ButtonStyle" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-
-    </ScrollView>
+        </ScrollView>
 
     </LinearLayout>
 
