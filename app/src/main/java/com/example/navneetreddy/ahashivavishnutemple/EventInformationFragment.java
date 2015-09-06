@@ -258,11 +258,38 @@ public class EventInformationFragment extends Fragment {
 
                 String emailSubject = ("Re: " + event.getName() + " - (Sent from AHA Android App)");
 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("plain/text");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
-                intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
-                startActivity(intent);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.gm"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("No Email Client Found!")
+                                .setMessage("Please download an email client to send email.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        emailButton.setEnabled(true);
+                    }
+                }
             }
         });
 

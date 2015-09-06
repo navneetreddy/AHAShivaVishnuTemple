@@ -134,15 +134,15 @@ public class UpcomingEventsFragment extends Fragment {
                     Integer.parseInt(dateArray[2]),                                        // Year
                     Integer.parseInt(dateArray[0]) - 1,                                    // Month
                     Integer.parseInt(dateArray[1]));                                       // Day
-            startDateCalendar.set(Calendar.HOUR, Integer.parseInt(startTimeArray[0]));     // HOUR
-            startDateCalendar.set(Calendar.MINUTE, Integer.parseInt(startTimeArray[1]));   // MINUTE
+            startDateCalendar.set(Calendar.HOUR, Integer.parseInt(startTimeArray[0]));     // Hour
+            startDateCalendar.set(Calendar.MINUTE, Integer.parseInt(startTimeArray[1]));   // Minute
 
             endDateCalendar.set(
                     Integer.parseInt(dateArray[2]),                                        // Year
                     Integer.parseInt(dateArray[0]) - 1,                                    // Month
                     Integer.parseInt(dateArray[1]));                                       // Day
-            endDateCalendar.set(Calendar.HOUR, Integer.parseInt(endTimeArray[0]));         // HOUR
-            endDateCalendar.set(Calendar.MINUTE, Integer.parseInt(endTimeArray[1]));       // MINUTE
+            endDateCalendar.set(Calendar.HOUR, Integer.parseInt(endTimeArray[0]));         // Hour
+            endDateCalendar.set(Calendar.MINUTE, Integer.parseInt(endTimeArray[1]));       // Minute
 
             switch (startTimeArray[2]) {
                 case "am": startDateCalendar.set(Calendar.AM_PM, Calendar.AM); break;

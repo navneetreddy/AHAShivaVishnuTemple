@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -182,7 +185,32 @@ public class AboutDeveloperFragment extends Fragment {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Message from AHA Android App");
 
-                startActivity(emailIntent);
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.gm"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("No Email Client Found!")
+                                .setMessage("Please download an email client to send email.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        emailButton.setEnabled(true);
+                    }
+                }
             }
         });
     }

@@ -136,6 +136,7 @@ public class ContactUsFragment extends Fragment {
                 emailButton.setEnabled(false);
 
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.setType("plain/text");
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"contact.aha@aha-svtemple.org"});
 

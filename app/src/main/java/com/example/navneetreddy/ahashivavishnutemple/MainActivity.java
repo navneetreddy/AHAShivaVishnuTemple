@@ -1,8 +1,11 @@
 package com.example.navneetreddy.ahashivavishnutemple;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -90,7 +93,30 @@ public class MainActivity extends Activity {
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"navneet@tds.net"});
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Bug Report - AHA Android App");
 
-                startActivity(emailIntent);
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.gm"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("No Email Client Found!")
+                                .setMessage("Please download an email client to send email.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+                    }
+                }
 
                 return true;
 
