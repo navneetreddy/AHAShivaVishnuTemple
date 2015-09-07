@@ -59,8 +59,8 @@ public class AboutUsFragment extends Fragment {
                 "tax code. The devotees of AHA, who are currently residents of greater Madison " +
                 "area, migrated from various places around the world including Canada, Fiji " +
                 "Islands, Guyana, India, Malaysia, Nepal, Sri Lanka, United Kingdom, and other " +
-                "parts of the United States.\n" + "AHA is funded primarily from community and " +
-                "devotee donations.");
+                "parts of the United States.\n" +
+                "AHA is funded primarily from community and devotee donations.");
 
         vision.add("A well respected and supported organization that provides leadership and " +
                 "opportunities for members of the Hindu community of greater Madison in " +
@@ -84,7 +84,8 @@ public class AboutUsFragment extends Fragment {
 
         volunteer.add("AHA is a fully volunteer run organization. We welcome members of our " +
                 "community who are interested in volunteering for the various programs and " +
-                "services provided by AHA.");
+                "services provided by AHA. Please contact us to learn more about volunteering " +
+                "for AHA.");
 
         expandableListHeaderData.add("American Hindu Association");
         expandableListHeaderData.add("Our Vision");

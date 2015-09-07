@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="5dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
+    android:layout_marginStart="@dimen/layout_margin"
+    android:layout_marginEnd="@dimen/layout_margin"
     card_view:cardCornerRadius="10dip"
     android:clickable="true" >
 
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="@dimen/layout_margin"
         android:background="@drawable/rounded_corners" >
 
         <TextView

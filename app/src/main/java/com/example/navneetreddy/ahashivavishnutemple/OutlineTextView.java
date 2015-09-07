@@ -89,10 +89,6 @@ public class OutlineTextView extends TextView {
         }
     }
 
-    public void setStroke(float width, int color) {
-        setStroke(width, color, Paint.Join.MITER, 10);
-    }
-
     public void setStroke(float width, int color, Paint.Join join, float miter) {
         strokeWidth = width;
         strokeColor = color;

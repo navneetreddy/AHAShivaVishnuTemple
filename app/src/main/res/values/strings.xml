@@ -1,8 +1,10 @@
 <resources>
+    <!-- Application Titles !-->
     <string name="app_name">AHA Shiva Vishnu Temple</string>
+    <string name="aha_title">American Hindu Association</string>
+    <string name="app_name_display">AHA</string>
 
-    <string name="om_image">Om Image</string>
-
+    <!-- Navigation Drawer Items !-->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Upcoming Events</item>
@@ -11,10 +13,21 @@
         <item>Contact Us</item>
     </string-array>
 
+    <!-- Fragment Headers !-->
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="make_a_donation">Make a Donation</string>
     <string name="about_us">About Us</string>
-    <string name="aha_title">American Hindu Association</string>
-
     <string name="contact_us">Contact Us</string>
+
+    <!-- Splash Screen !-->
+    <string name="om_image">Om Image</string>
+    <string name="developer">Developed by Navneet Shivam Reddy</string>
+
+    <!-- Home Page !-->
+    <string name="hindu_temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center]]></string>
+    <string name="shiva_vishnu_temple">Shiva Vishnu Temple</string>
+
+    <!-- Contact Us !-->
     <string name="temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center of Wisconsin]]></string>
     <string name="aha_address_line_1">2138 South Fish Hatchery Road</string>
     <string name="aha_address_line_2">Fitchburg, WI 53575</string>
@@ -23,36 +36,31 @@
     <string name="email">Email</string>
     <string name="visit_website">Visit Website</string>
 
-    <string name="upcoming_events">Upcoming Events</string>
-
+    <!-- Event Information !-->
     <string name="date">Date:</string>
     <string name="time">Time:</string>
+    <string name="location">Location:</string>
     <string name="contact_name">Contact Name:</string>
     <string name="contact_phone">Contact Phone:</string>
     <string name="contact_email">Contact Email:</string>
-    <string name="add_event_to_google_calendar">Add Event to Google Calendar</string>
-    <string name="view_event_details">View Event Details</string>
-    <string name="welcome">Welcome!</string>
-    <string name="developer">Developed by Navneet Shivam Reddy</string>
-    <string name="make_a_donation">Make a Donation</string>
-    <string name="navneet_reddy">Navneet Reddy</string>
-    <string name="email_navneet">Email Navneet</string>
-    <string name="navneet_picture">Navneet\'s Picture</string>
-    <string name="about_navneet">About Navneet</string>
-    <string name="expanded_image">Expanded Image</string>
-    <string name="degree">B.S. Computer Sciences</string>
-    <string name="school">UW Madison</string>
     <string name="call_contact_button">Call Contact Button</string>
     <string name="email_contact_button">Email Contact Button</string>
-    <string name="app_name_display">AHA</string>
-    <string name="about_the_developer">About the Developer</string>
+    <string name="view_event_details">View Event Details</string>
+    <string name="add_event_to_google_calendar">Add Event to Google Calendar</string>
+
+    <!-- Meet The Developer !-->
+    <string name="meet_the_developer">Meet the App Developer</string>
+    <string name="navneet_reddy">Navneet Reddy</string>
+    <string name="navneet_picture">Navneet\'s Picture</string>
+    <string name="expanded_image">Expanded Image</string>
+    <string name="about_navneet">About Navneet</string>
+    <string name="degree">B.S. Computer Sciences</string>
+    <string name="school">UW Madison</string>
     <string name="linkedin_button">LinkedIn Button</string>
     <string name="github_button">GitHub Button</string>
-
-    <string name="report_a_bug">Report a Bug</string>
+    <string name="email_navneet">Email Navneet</string>
     <string name="email_button">Email Button</string>
-    <string name="location">Location:</string>
-    <string name="meet_the_developer">Meet the App Developer</string>
-    <string name="hindu_temple_cultural_center"><![CDATA[Hindu Temple & Cultural Center]]></string>
-    <string name="shiva_vishnu_temple">Shiva Vishnu Temple</string>
+
+    <!-- Action Bar Menu Item !-->
+    <string name="report_a_bug">Report a Bug</string>
 </resources>

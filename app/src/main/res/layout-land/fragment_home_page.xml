@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
+    android:padding="@dimen/layout_margin"
     tools:context="com.example.navneetreddy.ahashivavishnutemple.HomePageFragment" >
 
     <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
@@ -44,7 +44,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_margin="10dp"
+                    android:layout_margin="@dimen/layout_margin"
                     android:layout_gravity="center"
                     android:src="@drawable/aha_logo"
                     android:contentDescription="@string/om_image" />
@@ -72,7 +72,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:layout_gravity="center" >
 
@@ -86,8 +85,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/rounded_corners"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
+                    android:layout_marginBottom="@dimen/layout_margin"
+                    android:padding="@dimen/layout_margin"
                     android:text="@string/upcoming_events"
                     android:id="@+id/upcomingEventsButton" />
 
@@ -96,8 +95,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/rounded_corners"
-                    android:layout_marginBottom="10dp"
-                    android:padding="10dp"
+                    android:layout_marginBottom="@dimen/layout_margin"
+                    android:padding="@dimen/layout_margin"
                     android:text="@string/make_a_donation"
                     android:id="@+id/makeADonationButton" />
 
@@ -105,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="@dimen/layout_margin"
                     android:weightSum="2" >
 
                     <Button
@@ -114,7 +113,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/rounded_corners"
                         android:layout_marginEnd="5dp"
-                        android:padding="10dp"
+                        android:padding="@dimen/layout_margin"
                         android:layout_weight="1"
                         android:text="@string/about_us"
                         android:id="@+id/aboutUsButton"
@@ -126,7 +125,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/rounded_corners"
                         android:layout_marginStart="5dp"
-                        android:padding="10dp"
+                        android:padding="@dimen/layout_margin"
                         android:layout_weight="1"
                         android:text="@string/contact_us"
                         android:id="@+id/contactUsButton"

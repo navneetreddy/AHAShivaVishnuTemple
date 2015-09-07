@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:baselineAligned="false"
         android:weightSum="10"
-        android:padding="10dp"
+        android:padding="@dimen/layout_margin"
         android:id="@+id/navneetFragmentLinearLayout" >
 
         <LinearLayout
@@ -182,7 +182,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:padding="10dp"
+        android:padding="@dimen/layout_margin"
         android:visibility="invisible"
         android:contentDescription="@string/expanded_image" />
 

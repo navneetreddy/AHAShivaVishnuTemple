@@ -100,7 +100,6 @@ public class AboutDeveloperFragment extends Fragment {
 
         linkedInButton = (ImageButton) view.findViewById(R.id.linkedinImageButton);
         githubButton = (ImageButton) view.findViewById(R.id.githubImageButton);
-
         imageThumb = (ImageButton) view.findViewById(R.id.navneetPicture);
         expandedImage = (ImageView) view.findViewById(R.id.navneetExpandedImage);
 

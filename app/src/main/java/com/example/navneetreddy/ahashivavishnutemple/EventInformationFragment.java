@@ -230,11 +230,38 @@ public class EventInformationFragment extends Fragment {
             public void onClick(View v) {
                 contactEmailText.setEnabled(false);
 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("plain/text");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
-                intent.putExtra(Intent.EXTRA_SUBJECT, event.getName());
-                startActivity(intent);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("plain/text");
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{event.getContactEmail()});
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, event.getName());
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException ae1) {
+                    Intent playStoreIntent = new Intent(Intent.ACTION_VIEW);
+                    playStoreIntent.setData(
+                            Uri.parse("market://details?id=com.google.android.gm"));
+
+                    try {
+                        startActivity(playStoreIntent);
+                    } catch (ActivityNotFoundException ae2) {
+                        new AlertDialog.Builder(Singleton.getContext())
+                                .setCancelable(true)
+                                .setIcon(android.R.drawable.stat_sys_warning)
+                                .setTitle("No Email Client Found!")
+                                .setMessage("Please download an email client to send email.")
+                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                })
+                                .show();
+
+                        contactEmailText.setEnabled(true);
+                    }
+                }
             }
         });
 
@@ -397,7 +424,8 @@ public class EventInformationFragment extends Fragment {
         values.put(CalendarContract.Events.TITLE, title);
         values.put(CalendarContract.Events.EVENT_LOCATION, location);
         values.put(CalendarContract.Events.CALENDAR_ID, calID);
-        values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getTimeZone("America/Chicago").getID());
+        values.put(CalendarContract.Events.EVENT_TIMEZONE,
+                TimeZone.getTimeZone("America/Chicago").getID());
 
         Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
 
