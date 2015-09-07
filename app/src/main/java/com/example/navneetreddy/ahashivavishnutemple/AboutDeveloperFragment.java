@@ -139,10 +139,10 @@ public class AboutDeveloperFragment extends Fragment {
      * Sets the description for the about Navneet section.
      */
     private void setDescription() {
-        String descriptionText = "Navneet is currently a student at the University of Wisconsin " +
-                "- Madison, expected to graduate in December 2015.\n\n" +
-                "Outside of developing software, Navneet enjoys refereeing soccer, watching " +
-                "sports and travelling.\n\n" +
+        String descriptionText = "Navneet is currently a senior at the University of Wisconsin " +
+                "- Madison, completing his Bachelor's degree in December 2015.\n\n" +
+                "Outside of computing and software development, Navneet enjoys refereeing soccer" +
+                ", all kinds of sports and exploring the world.\n\n" +
                 "Navneet's favorite sports teams include: Wisconsin Badgers, Green Bay Packers, " +
                 "Milwaukee Brewers, Milwaukee Bucks, and Stewart-Haas Racing.\n\n" +
                 "The code for this app is hosted on Navneet's GitHub profile under the " +

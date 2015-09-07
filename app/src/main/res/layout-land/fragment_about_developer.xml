@@ -148,6 +148,7 @@
                 android:scrollbars="vertical"
                 android:padding="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_alignParentTop="true"
                 android:layout_above="@+id/imageButtons"
                 android:background="@drawable/rounded_corners" >
 
