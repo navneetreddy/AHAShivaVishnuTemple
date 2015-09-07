@@ -57,10 +57,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.expandable_list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.lblListItem);
-
+        TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
         txtListChild.setText(childText);
+
         return convertView;
     }
 
@@ -119,6 +118,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public void onGroupExpanded(int groupPosition) {
+        /* Go to the donation webpage to donate by credit card. */
         if (listDataHeader.get(groupPosition).equals("Donate by Credit Card")) {
             final String creditCardDonationURL = "https://www.networkforgood.org/donation/" +
                     "ExpressDonation.aspx?ORGID2=391945997&vlrStratCode=" +

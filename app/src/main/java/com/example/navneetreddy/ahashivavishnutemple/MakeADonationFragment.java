@@ -69,12 +69,11 @@ public class MakeADonationFragment extends Fragment {
         ahaFunds.add("General Fund (Covers Operational Expenses)");
         ahaFunds.add("Food, Disaster & Humanitarian Aid Fund");
 
-        // TODO - format correctly.
-        sponsorLevels.add("$10,000+         Diamond Sponsor");
-        sponsorLevels.add("$5,000+          Platinum Sponsor");
-        sponsorLevels.add("$2,500+          Gold Sponsor");
-        sponsorLevels.add("$1,000+          Silver Sponsor");
-        sponsorLevels.add("$500+            Bronze Sponsor");
+        sponsorLevels.add(String.format("%-23s%s", "$10,000+",    "Diamond Sponsor"));
+        sponsorLevels.add(String.format("%-24s%s", "$5,000+",     "Platinum Sponsor"));
+        sponsorLevels.add(String.format("%-24s%s", "$2,500+",     "Gold Sponsor"));
+        sponsorLevels.add(String.format("%-24s%s", "$1,000+",     "Silver Sponsor"));
+        sponsorLevels.add(String.format("%-25s%s", "$500+",       "Bronze Sponsor"));
 
         donateMonthlyTransfer.add("Please complete a Pledge/Donation form with appropriate bank " +
                 "account details and mail it to:\n\n" +
