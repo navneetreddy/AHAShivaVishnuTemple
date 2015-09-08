@@ -1,4 +1,4 @@
-package com.example.navneetreddy.ahashivavishnutemple;
+package com.navneetreddy.ahashivavishnutemple;
 
 import android.os.Bundle;
 import android.app.Fragment;

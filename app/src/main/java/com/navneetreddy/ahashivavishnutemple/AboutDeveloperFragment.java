@@ -1,4 +1,4 @@
-package com.example.navneetreddy.ahashivavishnutemple;
+package com.navneetreddy.ahashivavishnutemple;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

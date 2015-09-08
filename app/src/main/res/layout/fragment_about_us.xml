@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/layout_margin"
-    tools:context="com.example.navneetreddy.ahashivavishnutemple.AboutUsFragment" >
+    tools:context="com.navneetreddy.ahashivavishnutemple.AboutUsFragment" >
 
-    <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+    <com.navneetreddy.ahashivavishnutemple.OutlineTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

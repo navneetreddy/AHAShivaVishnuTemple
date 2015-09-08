@@ -1,4 +1,4 @@
-package com.example.navneetreddy.ahashivavishnutemple;
+package com.navneetreddy.ahashivavishnutemple;
 
 import android.app.Activity;
 import android.content.Intent;

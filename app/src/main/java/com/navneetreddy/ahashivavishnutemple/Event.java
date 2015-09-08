@@ -1,4 +1,4 @@
-package com.example.navneetreddy.ahashivavishnutemple;
+package com.navneetreddy.ahashivavishnutemple;
 
 import android.support.annotation.NonNull;
 import android.util.Log;

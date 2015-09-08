@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/layout_margin"
     android:background="@drawable/aha_background_canvas"
-    tools:context="com.example.navneetreddy.ahashivavishnutemple.SplashScreenActivity" >
+    tools:context="com.navneetreddy.ahashivavishnutemple.SplashScreenActivity" >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:contentDescription="@string/om_image"
             android:layout_gravity="center_horizontal|top" />
 
-        <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+        <com.navneetreddy.ahashivavishnutemple.OutlineTextView
             android:id="@+id/splashTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

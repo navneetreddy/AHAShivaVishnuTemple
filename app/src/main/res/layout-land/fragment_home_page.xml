@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/layout_margin"
-    tools:context="com.example.navneetreddy.ahashivavishnutemple.HomePageFragment" >
+    tools:context="com.navneetreddy.ahashivavishnutemple.HomePageFragment" >
 
-    <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+    <com.navneetreddy.ahashivavishnutemple.OutlineTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -49,7 +49,7 @@
                     android:src="@drawable/aha_logo"
                     android:contentDescription="@string/om_image" />
 
-                <com.example.navneetreddy.ahashivavishnutemple.OutlineTextView
+                <com.navneetreddy.ahashivavishnutemple.OutlineTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
